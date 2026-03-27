@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Globe, Mail, CalendarHeart, MapPin, Palette, Gift } from "lucide-react";
+import { Globe, Mail, CalendarHeart, MapPin, Palette, Gift, Video, Smartphone } from "lucide-react";
 
 const services = [
   {
@@ -14,9 +14,9 @@ const services = [
     desc: "Elegant digital invitations with smart RSVP tracking, WhatsApp integration, and real-time guest management.",
   },
   {
-    icon: Gift,
-    title: "Registry Integration",
-    desc: "Seamlessly integrate gift registries so your guests can celebrate your journey with thoughtful presents.",
+    icon: Video,
+    title: "Video Invitation Creation",
+    desc: "Cinematic video invitations with custom animations, music, and transitions that captivate your guests from the first frame.",
   },
   {
     icon: MapPin,
@@ -32,6 +32,16 @@ const services = [
     icon: CalendarHeart,
     title: "Countdown & Event Timeline",
     desc: "Engaging countdown timers and detailed event schedules keeping your guests informed and excited.",
+  },
+  {
+    icon: Gift,
+    title: "Registry & Gifting Integration",
+    desc: "Seamlessly integrate gift registries so your guests can celebrate your journey with thoughtful presents.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Experience",
+    desc: "Progressive web apps that give your guests a native app-like experience on any device — no download required.",
   },
 ];
 
@@ -59,7 +69,7 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <motion.div
               key={service.title}

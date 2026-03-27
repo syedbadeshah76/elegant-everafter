@@ -112,7 +112,7 @@ const HeroSection = () => {
             Start Your Wedding Journey
           </a>
           <a
-            href="#portfolio"
+            href="/designs"
             className="px-8 py-4 border border-ivory/30 text-ivory font-body text-sm tracking-widest uppercase rounded-full hover:border-gold hover:text-gold transition-all duration-300"
           >
             View Our Designs

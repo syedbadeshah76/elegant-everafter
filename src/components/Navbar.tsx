@@ -1,14 +1,14 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "Home", href: "#hero" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Stories", href: "#stories" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Our Designs", href: "/designs" },
+  { label: "About Us", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const WHATSAPP_URL = "https://wa.me/919999999999?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
@@ -16,39 +16,37 @@ const WHATSAPP_URL = "https://wa.me/919999999999?text=Hi%2C%20I%27m%20planning%2
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
-  const bgOpacity = useTransform(scrollY, [0, 100], [0, 1]);
-  const blur = useTransform(scrollY, [0, 100], [0, 12]);
+  const bgOpacity = useTransform(scrollY, [0, 100], [0.3, 0.85]);
+  const location = useLocation();
 
   return (
     <>
       <motion.nav
         className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4"
-        style={{
-          backgroundColor: `hsla(40, 33%, 98%, ${bgOpacity.get()})`,
-        }}
       >
         <motion.div
-          className="absolute inset-0"
+          className="absolute inset-0 backdrop-blur-xl border-b border-border/30"
           style={{
-            backgroundColor: "hsla(40, 33%, 98%, 0.9)",
+            backgroundColor: "hsla(40, 33%, 98%, 0.15)",
             opacity: bgOpacity,
-            backdropFilter: `blur(${blur}px)`,
           }}
         />
         <div className="relative max-w-7xl mx-auto flex items-center justify-between">
-          <a href="#hero" className="font-script text-3xl text-gold">
-            Eternal
-          </a>
+          <Link to="/" className="font-script text-3xl text-gold">
+            Weddy Dev
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
-                className="font-body text-sm tracking-wide text-foreground/70 hover:text-gold transition-colors duration-300"
+                to={link.href}
+                className={`font-body text-sm tracking-wide transition-colors duration-300 ${
+                  location.pathname === link.href ? "text-gold" : "text-foreground/70 hover:text-gold"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a
               href={WHATSAPP_URL}
@@ -86,17 +84,20 @@ const AnimatePresenceMobile = ({ isOpen, onClose }: { isOpen: boolean; onClose: 
       exit={{ opacity: 0 }}
     >
       {navLinks.map((link, i) => (
-        <motion.a
+        <motion.div
           key={link.href}
-          href={link.href}
-          onClick={onClose}
-          className="font-display text-2xl text-foreground hover:text-gold transition-colors"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: i * 0.08 }}
         >
-          {link.label}
-        </motion.a>
+          <Link
+            to={link.href}
+            onClick={onClose}
+            className="font-display text-2xl text-foreground hover:text-gold transition-colors"
+          >
+            {link.label}
+          </Link>
+        </motion.div>
       ))}
       <motion.a
         href="https://wa.me/919999999999"

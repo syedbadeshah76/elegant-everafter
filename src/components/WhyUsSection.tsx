@@ -18,8 +18,8 @@ const WhyUsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-32 bg-background relative" ref={ref}>
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="py-24 md:py-32 bg-background relative overflow-hidden" ref={ref}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -39,9 +39,9 @@ const WhyUsSection = () => {
         >
           {/* Header */}
           <div className="grid grid-cols-3 gradient-gold text-primary-foreground">
-            <div className="p-4 font-display text-sm md:text-base">Feature</div>
-            <div className="p-4 font-display text-sm md:text-base text-center">Eternal</div>
-            <div className="p-4 font-display text-sm md:text-base text-center">Others</div>
+            <div className="p-3 sm:p-4 font-display text-xs sm:text-sm md:text-base">Feature</div>
+            <div className="p-3 sm:p-4 font-display text-xs sm:text-sm md:text-base text-center">Weddy Dev</div>
+            <div className="p-3 sm:p-4 font-display text-xs sm:text-sm md:text-base text-center">Others</div>
           </div>
 
           {comparisons.map((row, i) => (
@@ -52,19 +52,19 @@ const WhyUsSection = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3 + i * 0.05 }}
             >
-              <div className="p-4 font-body text-sm text-foreground">{row.feature}</div>
-              <div className="p-4 flex justify-center">
-                <div className="w-7 h-7 rounded-full gradient-gold flex items-center justify-center">
+              <div className="p-3 sm:p-4 font-body text-xs sm:text-sm text-foreground">{row.feature}</div>
+              <div className="p-3 sm:p-4 flex justify-center">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full gradient-gold flex items-center justify-center">
                   <Check size={14} className="text-primary-foreground" />
                 </div>
               </div>
-              <div className="p-4 flex justify-center">
+              <div className="p-3 sm:p-4 flex justify-center">
                 {row.others ? (
-                  <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-muted flex items-center justify-center">
                     <Check size={14} className="text-muted-foreground" />
                   </div>
                 ) : (
-                  <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-muted flex items-center justify-center">
                     <X size={14} className="text-muted-foreground" />
                   </div>
                 )}

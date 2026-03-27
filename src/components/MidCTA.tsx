@@ -12,7 +12,7 @@ const MidCTA = () => {
     <section className="py-20 bg-background relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 gradient-blush opacity-30" />
       <motion.div
-        className="relative max-w-3xl mx-auto px-6 text-center"
+        className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.7 }}

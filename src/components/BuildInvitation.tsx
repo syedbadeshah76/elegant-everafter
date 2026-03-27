@@ -42,7 +42,7 @@ const BuildInvitation = () => {
 
   return (
     <section className="py-24 md:py-32 bg-background relative overflow-hidden" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -67,7 +67,7 @@ const BuildInvitation = () => {
           >
             <div>
               <p className="font-display text-lg text-foreground mb-3">Choose Culture</p>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 {cultures.map((c) => (
                   <button
                     key={c}
@@ -86,7 +86,7 @@ const BuildInvitation = () => {
 
             <div>
               <p className="font-display text-lg text-foreground mb-3">Choose Theme</p>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 {themes.map((t) => (
                   <button
                     key={t}

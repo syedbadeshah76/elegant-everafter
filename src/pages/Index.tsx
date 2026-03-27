@@ -3,8 +3,8 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import SocialProof from "@/components/SocialProof";
 import ServicesSection from "@/components/ServicesSection";
-import PortfolioSection from "@/components/PortfolioSection";
 import MidCTA from "@/components/MidCTA";
+import OurDesignsSection from "@/components/OurDesignsSection";
 import BuildInvitation from "@/components/BuildInvitation";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import WhyUsSection from "@/components/WhyUsSection";
@@ -23,7 +23,7 @@ const Index = () => {
       <HeroSection />
       <SocialProof />
       <ServicesSection />
-      <PortfolioSection />
+      <OurDesignsSection />
       <MidCTA />
       <BuildInvitation />
       <TestimonialsSection />

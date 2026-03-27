@@ -1,0 +1,19 @@
+import Navbar from "@/components/Navbar";
+import ContactSection from "@/components/ContactSection";
+import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
+
+const ContactPage = () => (
+  <main>
+    <Navbar />
+    <div className="pt-24">
+      <ContactSection />
+      <FAQSection />
+    </div>
+    <Footer />
+    <FloatingButtons />
+  </main>
+);
+
+export default ContactPage;

@@ -29,7 +29,7 @@ const LoadingScreen = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Eternal
+              Weddy Dev
             </motion.p>
             <motion.div
               className="w-24 h-[1px] gradient-gold mx-auto mb-4"

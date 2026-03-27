@@ -1,0 +1,19 @@
+import Navbar from "@/components/Navbar";
+import AboutSection from "@/components/AboutSection";
+import WhyUsSection from "@/components/WhyUsSection";
+import Footer from "@/components/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
+
+const AboutPage = () => (
+  <main>
+    <Navbar />
+    <div className="pt-24">
+      <AboutSection />
+      <WhyUsSection />
+    </div>
+    <Footer />
+    <FloatingButtons />
+  </main>
+);
+
+export default AboutPage;

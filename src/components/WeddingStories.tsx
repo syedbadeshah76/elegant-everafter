@@ -31,8 +31,8 @@ const WeddingStories = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="stories" className="py-24 md:py-32 bg-cream relative" ref={ref}>
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="stories" className="py-24 md:py-32 bg-cream relative overflow-hidden" ref={ref}>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -65,7 +65,7 @@ const WeddingStories = () => {
 
               {/* Content */}
               <div className={`ml-16 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-                <div className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-soft hover:shadow-gold transition-shadow duration-500">
+                <div className="bg-card rounded-2xl p-5 sm:p-6 md:p-8 border border-border shadow-soft hover:shadow-gold transition-shadow duration-500">
                   <p className="font-body text-xs uppercase tracking-widest text-gold mb-2">{story.date}</p>
                   <h3 className="font-display text-xl text-foreground mb-3">{story.couple}</h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{story.story}</p>

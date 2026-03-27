@@ -39,8 +39,8 @@ const FAQSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-32 bg-cream relative" ref={ref}>
-      <div className="max-w-3xl mx-auto px-6">
+    <section className="py-24 md:py-32 bg-cream relative overflow-hidden" ref={ref}>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -62,9 +62,9 @@ const FAQSection = () => {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-card border border-border rounded-xl px-6 overflow-hidden"
+                className="bg-card border border-border rounded-xl px-4 sm:px-6 overflow-hidden"
               >
-                <AccordionTrigger className="font-display text-base text-foreground hover:text-gold transition-colors py-5 hover:no-underline">
+                <AccordionTrigger className="font-display text-sm sm:text-base text-foreground hover:text-gold transition-colors py-5 hover:no-underline text-left">
                   {faq.q}
                 </AccordionTrigger>
                 <AccordionContent className="font-body text-sm text-muted-foreground leading-relaxed pb-5">

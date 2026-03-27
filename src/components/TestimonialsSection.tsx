@@ -40,7 +40,7 @@ const TestimonialsSection = () => {
 
   return (
     <section className="py-24 md:py-32 bg-cream relative overflow-hidden" ref={ref}>
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -60,7 +60,7 @@ const TestimonialsSection = () => {
           <Quote className="mx-auto text-gold/20 mb-6" size={48} />
 
           <motion.div key={current} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <p className="font-display text-xl md:text-2xl text-foreground italic leading-relaxed mb-8 max-w-2xl mx-auto">
+            <p className="font-display text-lg sm:text-xl md:text-2xl text-foreground italic leading-relaxed mb-8 max-w-2xl mx-auto">
               "{t.quote}"
             </p>
             <div className="flex justify-center gap-1 mb-4">

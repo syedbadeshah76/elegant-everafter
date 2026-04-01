@@ -125,6 +125,9 @@
   .gold-glow {
     box-shadow: 0 0 30px hsla(37 38% 60% / 0.3), 0 0 60px hsla(37 38% 60% / 0.1);
   }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
 }
 
 /* Custom scrollbar */

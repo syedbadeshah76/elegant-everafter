@@ -7,7 +7,12 @@ import projectHinduRoyal from "@/assets/project-hindu-royal.jpg";
 import projectHinduTemple from "@/assets/project-hindu-temple.jpg";
 import projectHinduFloral from "@/assets/project-hindu-floral.jpg";
 import projectMuslimNikah from "@/assets/project-muslim-nikah.jpg";
-import projectMuslimMughal from "@/assets/project-muslim-mughal.jpg";
+import projectMuslimMughal from "@/assets/oursection1.png";
+import projectMuslimMugha6 from "@/assets/oursection2.png";
+import projectMuslimMugha2 from "@/assets/image.png";
+import projectMuslimMugha4 from "@/assets/image.png";
+import projectMuslimMugha5 from "@/assets/image.png";
+import projectMuslimMugha3 from "@/assets/image.png";
 import projectChristianGarden from "@/assets/project-christian-garden.jpg";
 import projectChristianChurch from "@/assets/project-christian-church.jpg";
 import projectGeneralModern from "@/assets/project-general-modern.jpg";
@@ -52,17 +57,39 @@ const designCategories: { category: string; designs: ProjectDesign[] }[] = [
     category: "Muslim Wedding Designs",
     designs: [
       {
-        title: "Emerald Nikah",
+        title: "Hashim & Ayesha",
         price: "₹4,999",
         image: projectMuslimNikah,
-        link: "#",
+        link: "https://asif-sana-wedding.netlify.app/",
         features: ["Bilingual Content", "RSVP System", "Venue Info"],
       },
       {
-        title: "Royal Mughal",
+        title: "Mohd & Habeeba",
         price: "₹6,999",
         image: projectMuslimMughal,
-        link: "#",
+        link: "https://weddy3.netlify.app/",
+        features: ["Full Website", "Guest Management", "Travel Guide"],
+      },
+      {
+        title: "Asif & Ariba",
+        price: "₹6,999",
+        image: projectMuslimMughal,
+        link: "https://asif-ariba-wedding.netlify.app/",
+        features: ["Full Website", "Guest Management", "Travel Guide"],
+      },
+      
+      {
+        title: "Yaseen & Sara",
+        price: "₹6,999",
+        image: projectMuslimMugha6,
+        link: "https://weddy4.netlify.app/",
+        features: ["Full Website", "Guest Management", "Travel Guide"],
+      },
+      {
+        title: "Dr. Shakeel & Dr. Khateja",
+        price: "₹6,999",
+        image: projectMuslimMughal,
+        link: "https://weddy5.netlify.app/",
         features: ["Full Website", "Guest Management", "Travel Guide"],
       },
     ],

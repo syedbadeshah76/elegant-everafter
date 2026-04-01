@@ -32,21 +32,21 @@ const designCategories: { category: string; designs: ProjectDesign[] }[] = [
     designs: [
       {
         title: "Royal Rajputana",
-        price: "₹4,999",
+        price: "₹4,999.99",
         image: projectHinduRoyal,
         link: "#",
         features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"],
       },
       {
         title: "Temple Gold",
-        price: "₹5,999",
+        price: "₹5,999.99",
         image: projectHinduTemple,
         link: "#",
         features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"],
       },
       {
         title: "Floral Mehendi",
-        price: "₹3,499",
+        price: "₹3,499.99",
         image: projectHinduFloral,
         link: "#",
         features: ["Photo Gallery", "Countdown", "WhatsApp RSVP"],

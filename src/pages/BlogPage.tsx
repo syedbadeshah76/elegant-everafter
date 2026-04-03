@@ -90,6 +90,7 @@ const BlogPage = () => (
     <Footer />
     <FloatingButtons />
   </main>
+  </PageTransition>
 );
 
 export default BlogPage;

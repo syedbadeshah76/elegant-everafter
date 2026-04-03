@@ -16,23 +16,23 @@ const WHATSAPP_URL = "https://wa.me/919999999999?text=Hi%2C%20I%27m%20planning%2
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
-  const bgOpacity = useTransform(scrollY, [0, 100], [0.3, 0.85]);
+  const bgOpacity = useTransform(scrollY, [0, 100], [0.6, 0.95]);
   const location = useLocation();
 
   return (
     <>
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4"
+        className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 py-3 md:py-4"
       >
         <motion.div
           className="absolute inset-0 backdrop-blur-xl border-b border-border/30"
           style={{
-            backgroundColor: "hsla(40, 33%, 98%, 0.15)",
+            backgroundColor: "hsla(220, 30%, 12%, 0.7)",
             opacity: bgOpacity,
           }}
         />
         <div className="relative max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="font-script text-3xl text-gold">
+          <Link to="/" className="font-script text-2xl sm:text-3xl text-gold">
             Weddy Dev
           </Link>
 
@@ -42,7 +42,7 @@ const Navbar = () => {
                 key={link.href}
                 to={link.href}
                 className={`font-body text-sm tracking-wide transition-colors duration-300 ${
-                  location.pathname === link.href ? "text-gold" : "text-foreground/70 hover:text-gold"
+                  location.pathname === link.href ? "text-gold" : "text-ivory/70 hover:text-gold"
                 }`}
               >
                 {link.label}
@@ -59,7 +59,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-foreground z-10"
+            className="md:hidden text-ivory z-10"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -78,7 +78,7 @@ const AnimatePresenceMobile = ({ isOpen, onClose }: { isOpen: boolean; onClose: 
   if (!isOpen) return null;
   return (
     <motion.div
-      className="fixed inset-0 z-40 bg-background/98 flex flex-col items-center justify-center gap-6"
+      className="fixed inset-0 z-40 bg-navy/98 flex flex-col items-center justify-center gap-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -93,7 +93,7 @@ const AnimatePresenceMobile = ({ isOpen, onClose }: { isOpen: boolean; onClose: 
           <Link
             to={link.href}
             onClick={onClose}
-            className="font-display text-2xl text-foreground hover:text-gold transition-colors"
+            className="font-display text-2xl text-ivory hover:text-gold transition-colors"
           >
             {link.label}
           </Link>

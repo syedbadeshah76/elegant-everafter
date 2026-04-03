@@ -17,8 +17,11 @@ const HeroSection = () => {
           alt="Luxury wedding floral arrangement"
           className="w-full h-full object-cover"
           loading="eager"
+          width={1920}
+          height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
+        {/* Stronger gradient overlay for navbar contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/55 to-navy/85" />
       </div>
 
       {/* Floating decorative elements */}

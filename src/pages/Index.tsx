@@ -1,3 +1,4 @@
+import PageTransition from "@/components/PageTransition";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -17,24 +18,26 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main>
-      <LoadingScreen />
-      <Navbar />
-      <HeroSection />
-      <SocialProof />
-      <ServicesSection />
-      <OurDesignsSection />
-      <MidCTA />
-      <BuildInvitation />
-      <TestimonialsSection />
-      <WhyUsSection />
-      <WeddingStories />
-      <AboutSection />
-      <ContactSection />
-      <FAQSection />
-      <Footer />
-      <FloatingButtons />
-    </main>
+    <PageTransition>
+      <main>
+        <LoadingScreen />
+        <Navbar />
+        <HeroSection />
+        <SocialProof />
+        <ServicesSection />
+        <OurDesignsSection />
+        <MidCTA />
+        <BuildInvitation />
+        <TestimonialsSection />
+        <WhyUsSection />
+        <WeddingStories />
+        <AboutSection />
+        <ContactSection />
+        <FAQSection />
+        <Footer />
+        <FloatingButtons />
+      </main>
+    </PageTransition>
   );
 };
 

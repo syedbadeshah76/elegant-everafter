@@ -159,15 +159,15 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
       href={design.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[240px] lg:w-[260px] rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 transition-all duration-500 hover:shadow-gold cursor-pointer group block"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ y: -10, transition: { duration: 0.3 } }}
+      className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 transition-all duration-500 hover:shadow-gold cursor-pointer group block"
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+      whileHover={{ y: -8, transition: { duration: 0.3 } }}
     >
-      {/* Portrait Image */}
-      <div className="relative w-full aspect-[3/4] overflow-hidden bg-muted">
+      {/* Landscape Image - 16:10 aspect */}
+      <div className="relative w-full aspect-[16/10] overflow-hidden bg-muted">
         {!imageLoaded && (
           <div className="absolute inset-0 bg-muted animate-pulse" />
         )}
@@ -175,10 +175,10 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
           src={design.image}
           alt={design.title}
           loading="lazy"
-          width={640}
-          height={896}
+          width={800}
+          height={500}
           onLoad={() => setImageLoaded(true)}
-          className={`w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110 ${
+          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${
             imageLoaded ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -194,13 +194,13 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
         </div>
 
         {/* Price badge */}
-        <div className="absolute top-2.5 right-2.5 gradient-gold text-primary-foreground font-display text-xs sm:text-sm px-2.5 py-1 rounded-full shadow-gold">
+        <div className="absolute top-3 right-3 gradient-gold text-primary-foreground font-display text-xs sm:text-sm px-3 py-1.5 rounded-full shadow-gold">
           {design.price}
         </div>
 
         {/* Status badge */}
         {design.badge && (
-          <div className={`absolute top-2.5 left-2.5 font-body text-[10px] sm:text-xs px-2 py-0.5 rounded-full flex items-center gap-1 ${
+          <div className={`absolute top-3 left-3 font-body text-[10px] sm:text-xs px-2.5 py-1 rounded-full flex items-center gap-1 ${
             design.badge === "Popular"
               ? "bg-accent text-accent-foreground"
               : design.badge === "Premium"
@@ -214,15 +214,15 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
       </div>
 
       {/* Info */}
-      <div className="p-3 sm:p-4">
-        <h4 className="font-display text-sm sm:text-base text-foreground mb-1.5 group-hover:text-gold transition-colors">
+      <div className="p-4 sm:p-5">
+        <h4 className="font-display text-base sm:text-lg text-foreground mb-2 group-hover:text-gold transition-colors">
           {design.title}
         </h4>
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1.5">
           {design.features.map((feature) => (
             <span
               key={feature}
-              className="font-body text-[9px] sm:text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded-full"
+              className="font-body text-[10px] sm:text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full"
             >
               {feature}
             </span>
@@ -250,24 +250,42 @@ const OurDesignsSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-script text-gold text-lg sm:text-xl md:text-2xl mb-2">Our Collection</p>
-          <h2 className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl text-foreground mb-2 sm:mb-3">
+          <motion.p
+            className="font-script text-gold text-lg sm:text-xl md:text-2xl mb-2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Our Collection
+          </motion.p>
+          <motion.h2
+            className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl text-foreground mb-2 sm:mb-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Explore Our <span className="text-gradient-gold italic">Wedding Designs</span>
-          </h2>
-          <p className="font-body text-xs sm:text-sm md:text-base text-muted-foreground max-w-lg mx-auto">
+          </motion.h2>
+          <motion.p
+            className="font-body text-xs sm:text-sm md:text-base text-muted-foreground max-w-lg mx-auto"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             Browse our curated collection crafted for every culture and style.
-          </p>
+          </motion.p>
         </motion.div>
 
         {designCategories.map((cat, catIndex) => (
           <motion.div
             key={cat.category}
-            className="mb-8 sm:mb-10 last:mb-0"
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: catIndex * 0.12, duration: 0.5 }}
+            className="mb-10 sm:mb-14 last:mb-0"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: catIndex * 0.1, duration: 0.5 }}
           >
-            <div className="flex items-center justify-between mb-3 sm:mb-5">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
               <h3 className="font-display text-base sm:text-lg md:text-2xl text-foreground flex items-center gap-2">
                 <span>{cat.emoji}</span> {cat.category}
               </h3>
@@ -280,7 +298,7 @@ const OurDesignsSection = () => {
             </div>
 
             {/* Horizontal scrollable row */}
-            <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-gold/40 scrollbar-track-transparent -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory scroll-smooth">
+            <div className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gold/40 scrollbar-track-transparent -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory scroll-smooth">
               {cat.designs.map((design, i) => (
                 <div key={design.title} className="snap-start">
                   <DesignCard design={design} index={i} />
@@ -293,9 +311,10 @@ const OurDesignsSection = () => {
         {/* CTA */}
         <motion.div
           className="text-center mt-8 sm:mt-12"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           <Link
             to="/designs"

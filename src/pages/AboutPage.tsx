@@ -16,6 +16,7 @@ const AboutPage = () => (
     <Footer />
     <FloatingButtons />
   </main>
+  </PageTransition>
 );
 
 export default AboutPage;

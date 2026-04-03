@@ -16,6 +16,7 @@ const ContactPage = () => (
     <Footer />
     <FloatingButtons />
   </main>
+  </PageTransition>
 );
 
 export default ContactPage;

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Star } from "lucide-react";
-import heroImage from "@/assets/hero-wedding.jpg";
+import heroImage from "@/assets/herosection.png";
 
 const WHATSAPP_URL = "https://wa.me/919999999999?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
 
@@ -17,8 +17,11 @@ const HeroSection = () => {
           alt="Luxury wedding floral arrangement"
           className="w-full h-full object-cover"
           loading="eager"
+          width={1920}
+          height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
+        {/* Stronger gradient overlay for navbar contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/55 to-navy/85" />
       </div>
 
       {/* Floating decorative elements */}

@@ -33,6 +33,7 @@ const posts = [
 ];
 
 const BlogPage = () => (
+  <PageTransition>
   <main>
     <Navbar />
     <div className="pt-24">

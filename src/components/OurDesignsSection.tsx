@@ -10,6 +10,7 @@ import projectHinduPeacock from "@/assets/project-hindu-peacock.jpg";
 import projectMuslimNikah from "@/assets/project-muslim-nikah.jpg";
 import projectMuslimMughal from "@/assets/project-muslim-mughal.jpg";
 import projectMuslimMinimal from "@/assets/project-muslim-minimal.jpg";
+import projectMuslimMinimal1 from "@/assets/project-muslim-minimal1.jpg";
 import projectChristianGarden from "@/assets/project-christian-garden.jpg";
 import projectChristianChurch from "@/assets/project-christian-church.jpg";
 import projectChristianRustic from "@/assets/project-christian-rustic.jpg";
@@ -35,32 +36,33 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         title: "Royal Rajputana",
         price: "₹4,999",
         image: projectHinduRoyal,
-        link: "https://weddydev.com/demo/hindu-royal",
+        link: "https://weddy7.netlify.app/",
         features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"],
         badge: "Popular",
       },
-      {
-        title: "Temple Gold",
-        price: "₹5,999",
-        image: projectHinduTemple,
-        link: "https://weddydev.com/demo/hindu-temple",
-        features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"],
-      },
-      {
+       {
         title: "Floral Mehendi",
         price: "₹3,499",
         image: projectHinduFloral,
-        link: "https://weddydev.com/demo/hindu-floral",
+        link: "https://weddy9.netlify.app/",
         features: ["Photo Gallery", "Countdown", "WhatsApp RSVP"],
       },
       {
-        title: "Peacock Paradise",
-        price: "₹5,499",
-        image: projectHinduPeacock,
-        link: "https://weddydev.com/demo/hindu-peacock",
-        features: ["Music Player", "Guest Book", "Timeline"],
-        badge: "New",
+        title: "Classic Elegante Wedding",
+        price: "₹5,999",
+        image: projectHinduTemple,
+        link: "https://weddy6.netlify.app/",
+        features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"],
       },
+     
+      // {
+      //   title: "Peacock Paradise",
+      //   price: "₹5,499",
+      //   image: projectHinduPeacock,
+      //   link: "https://weddydev.com/demo/hindu-peacock",
+      //   features: ["Music Player", "Guest Book", "Timeline"],
+      //   badge: "New",
+      // },
     ],
   },
   {
@@ -68,25 +70,33 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
     emoji: "🌙",
     designs: [
       {
-        title: "Emerald Nikah",
+        title: "Elegant Wedding Invitation",
         price: "₹4,999",
         image: projectMuslimNikah,
-        link: "https://weddydev.com/demo/muslim-nikah",
+        link: "https://asif-ariba-wedding.netlify.app/",
         features: ["Bilingual Content", "RSVP System", "Venue Info"],
         badge: "Popular",
       },
       {
-        title: "Royal Mughal",
+        title: "Classic Wedding Charm",
         price: "₹6,999",
         image: projectMuslimMughal,
-        link: "https://weddydev.com/demo/muslim-mughal",
+        link: "https://weddy3.netlify.app/",
         features: ["Full Website", "Guest Management", "Travel Guide"],
       },
       {
-        title: "Marble Elegance",
+        title: "Classic Wedding Elegance",
+        price: "₹4,499",
+        image: projectMuslimMinimal1,
+        link: "https://weddy4.netlify.app/",
+        features: ["Minimal Design", "RSVP", "Photo Gallery"],
+        badge: "New",
+      },
+      {
+        title: "Wedding Elegance",
         price: "₹4,499",
         image: projectMuslimMinimal,
-        link: "https://weddydev.com/demo/muslim-minimal",
+        link: "https://weddy5.netlify.app/",
         features: ["Minimal Design", "RSVP", "Photo Gallery"],
         badge: "New",
       },

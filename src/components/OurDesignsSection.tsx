@@ -308,7 +308,7 @@ const OurDesignsSection = () => {
             </div>
 
             {/* Horizontal scrollable row */}
-            <div className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gold/40 scrollbar-track-transparent -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory scroll-smooth">
+            <div className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 no-scrollbar sm:scrollbar-thin sm:scrollbar-thumb-gold/40 sm:scrollbar-track-transparent -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory scroll-smooth">
               {cat.designs.map((design, i) => (
                 <div key={design.title} className="snap-start">
                   <DesignCard design={design} index={i} />

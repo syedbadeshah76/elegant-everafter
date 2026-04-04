@@ -78,11 +78,19 @@ const AnimatePresenceMobile = ({ isOpen, onClose }: { isOpen: boolean; onClose: 
   if (!isOpen) return null;
   return (
     <motion.div
-      className="fixed inset-0 z-40 bg-navy/98 flex flex-col items-center justify-center gap-6"
+      className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-6"
+      style={{ backgroundColor: "hsl(220, 45%, 12%)" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-ivory/80 hover:text-gold transition-colors"
+        aria-label="Close menu"
+      >
+        <X size={28} />
+      </button>
       {navLinks.map((link, i) => (
         <motion.div
           key={link.href}

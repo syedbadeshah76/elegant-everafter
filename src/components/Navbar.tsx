@@ -84,6 +84,13 @@ const AnimatePresenceMobile = ({ isOpen, onClose }: { isOpen: boolean; onClose: 
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-ivory/80 hover:text-gold transition-colors"
+        aria-label="Close menu"
+      >
+        <X size={28} />
+      </button>
       {navLinks.map((link, i) => (
         <motion.div
           key={link.href}

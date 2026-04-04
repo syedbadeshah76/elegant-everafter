@@ -17,7 +17,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main>
+    <main className="overflow-x-clip">
       <LoadingScreen />
       <Navbar />
       <HeroSection />

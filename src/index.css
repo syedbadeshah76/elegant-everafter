@@ -157,6 +157,18 @@
   background: hsl(var(--gold-dark));
 }
 
+@media (max-width: 767px) {
+  html {
+    scrollbar-width: none;
+  }
+
+  body::-webkit-scrollbar,
+  html::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
+}
+
 /* Selection color */
 ::selection {
   background: hsla(37 38% 60% / 0.3);

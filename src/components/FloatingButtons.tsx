@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Phone, MessageCircle, X, Gift, Sparkles } from "lucide-react";
 
 const WHATSAPP_URL =
-  "https://wa.me/919999999999?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
+  "https://wa.me/919160703822?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
 
 const FloatingButtons = () => {
   const [showOffer, setShowOffer] = useState(false);
@@ -11,11 +11,11 @@ const FloatingButtons = () => {
   const [showReengagement, setShowReengagement] = useState(false);
   const [reengagementDismissed, setReengagementDismissed] = useState(false);
 
-  // Show offer popup after 10 seconds
+  // Show offer popup after 15 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!offerDismissed) setShowOffer(true);
-    }, 10000);
+    }, 15000);
     return () => clearTimeout(timer);
   }, [offerDismissed]);
 
@@ -57,7 +57,7 @@ const FloatingButtons = () => {
     <>
       {/* Phone button - left */}
       <motion.a
-        href="tel:+919999999999"
+        href="tel:+919160703822"
         className="fixed left-3 sm:left-4 bottom-20 sm:bottom-24 md:bottom-8 z-40 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-elevated group"
         style={{
           background: "linear-gradient(135deg, hsl(220, 60%, 35%), hsl(220, 45%, 20%))",
@@ -106,7 +106,6 @@ const FloatingButtons = () => {
               "conic-gradient(from 0deg, transparent, hsla(37, 60%, 85%, 0.7), transparent, hsla(37, 50%, 80%, 0.5), transparent)",
           }}
         />
-        {/* Pulse ring */}
         <motion.span
           className="absolute inset-0 rounded-full border-2 border-gold-light"
           animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
@@ -194,17 +193,17 @@ const FloatingButtons = () => {
                   <Gift size={24} className="text-primary-foreground sm:w-[28px] sm:h-[28px]" />
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl text-foreground mb-2">
-                  Special Offer!
+                  🎉 Special Shaadi Offer!
                 </h3>
                 <p className="font-display text-base sm:text-lg text-gold mb-1">
                   FREE Demo + ₹2,000 OFF
                 </p>
                 <p className="font-body text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">
-                  Book your consultation today and get a complimentary design
-                  mockup plus ₹2,000 off your package.
+                  Book your wedding card consultation today and get a complimentary design
+                  mockup plus ₹2,000 off your invitation package.
                 </p>
                 <p className="font-body text-xs text-gold mb-3 sm:mb-4">
-                  ⭐ Trusted by 500+ happy couples
+                  ⭐ Trusted by 500+ happy couples across Hyderabad & India
                 </p>
                 <a
                   href={WHATSAPP_URL}
@@ -259,11 +258,11 @@ const FloatingButtons = () => {
                   Need Help?
                 </p>
                 <h3 className="font-display text-lg sm:text-xl text-foreground mb-2">
-                  Need help choosing a design?
+                  Need help choosing a wedding card design?
                 </h3>
                 <p className="font-body text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">
-                  Our wedding experts are here to help you find the perfect
-                  design for your special day.
+                  Our shaadi experts are here to help you find the perfect
+                  invitation design for your special day.
                 </p>
                 <a
                   href={WHATSAPP_URL}

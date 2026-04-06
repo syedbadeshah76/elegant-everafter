@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/919999999999?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
+const WHATSAPP_URL = "https://wa.me/919160703822?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -108,7 +108,7 @@ const AnimatePresenceMobile = ({ isOpen, onClose }: { isOpen: boolean; onClose: 
         </motion.div>
       ))}
       <motion.a
-        href="https://wa.me/919999999999"
+        href="https://wa.me/919160703822"
         target="_blank"
         rel="noopener noreferrer"
         className="mt-4 px-8 py-3 gradient-gold text-primary-foreground font-body rounded-full"

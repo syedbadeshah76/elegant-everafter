@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2 } from "lucide-react";
 
-const WEB3FORMS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY"; // Replace with your Web3Forms access key
+const WEB3FORMS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -36,11 +36,10 @@ const ContactSection = () => {
         setTimeout(() => setIsSuccess(false), 5000);
       }
     } catch {
-      // Fallback to WhatsApp
       const msg = encodeURIComponent(
         `Hi! I'm ${formState.name}. Wedding date: ${formState.date}. ${formState.message}`
       );
-      window.open(`https://wa.me/919999999999?text=${msg}`, "_blank");
+      window.open(`https://wa.me/919160703822?text=${msg}`, "_blank");
     } finally {
       setIsSubmitting(false);
     }
@@ -67,7 +66,6 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
             className="space-y-5"
@@ -125,7 +123,6 @@ const ContactSection = () => {
             </motion.button>
           </motion.form>
 
-          {/* Info */}
           <motion.div
             className="space-y-8 flex flex-col justify-center"
             initial={{ opacity: 0, x: 30 }}
@@ -133,9 +130,9 @@ const ContactSection = () => {
             transition={{ delay: 0.4 }}
           >
             {[
-              { icon: Phone, label: "Call Us", value: "+91 99999 99999" },
-              { icon: Mail, label: "Email Us", value: "hello@weddydev.com" },
-              { icon: MapPin, label: "Based In", value: "Mumbai, India • Serving Globally" },
+              { icon: Phone, label: "Call Us", value: "+91 91607 03822", href: "tel:+919160703822" },
+              { icon: Mail, label: "Email Us", value: "weddydevv@gmail.com", href: "mailto:weddydevv@gmail.com" },
+              { icon: MapPin, label: "Based In", value: "Hyderabad, India • Serving Globally" },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl gradient-gold flex items-center justify-center flex-shrink-0">
@@ -143,7 +140,13 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-body text-xs text-ivory/50 uppercase tracking-widest">{item.label}</p>
-                  <p className="font-display text-base sm:text-lg text-ivory break-all sm:break-normal">{item.value}</p>
+                  {item.href ? (
+                    <a href={item.href} className="font-display text-base sm:text-lg text-ivory hover:text-gold transition-colors break-all sm:break-normal">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="font-display text-base sm:text-lg text-ivory break-all sm:break-normal">{item.value}</p>
+                  )}
                 </div>
               </div>
             ))}

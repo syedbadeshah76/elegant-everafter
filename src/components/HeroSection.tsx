@@ -2,29 +2,26 @@ import { motion } from "framer-motion";
 import { ChevronDown, Star } from "lucide-react";
 import heroImage from "@/assets/herosection.png";
 
-const WHATSAPP_URL = "https://wa.me/919999999999?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
+const WHATSAPP_URL = "https://wa.me/919160703822?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
 
-const headlineWords = ["Not", "Just", "Invitations…"];
-const subWords = ["We", "Craft", "Digital", "Love", "Stories"];
+const headlineWords = ["Premium", "Wedding", "Invitations"];
+const subWords = ["& Shaadi", "Website", "Design"];
 
 const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Luxury wedding floral arrangement"
+          alt="Luxury wedding floral arrangement with elegant invitation cards"
           className="w-full h-full object-cover"
           loading="eager"
           width={1920}
           height={1080}
         />
-        {/* Stronger gradient overlay for navbar contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/55 to-navy/85" />
       </div>
 
-      {/* Floating decorative elements */}
       <motion.div
         className="absolute top-20 left-10 w-32 h-32 rounded-full border border-gold/20"
         animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
@@ -36,7 +33,6 @@ const HeroSection = () => {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.p
           className="font-script text-gold-light text-xl md:text-2xl mb-6"
@@ -81,10 +77,9 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 4.5, duration: 0.8 }}
         >
-          We don't just build wedding websites — we create digital experiences your guests will remember forever.
+          Custom wedding cards, digital shaadi invitations & stunning wedding websites — crafted for Hindu, Muslim & Christian celebrations across India.
         </motion.p>
 
-        {/* Trust badges */}
         <motion.div
           className="flex flex-wrap items-center justify-center gap-6 mb-10"
           initial={{ opacity: 0 }}
@@ -96,10 +91,9 @@ const HeroSection = () => {
             <span className="text-ivory/80">Trusted by 500+ couples</span>
           </div>
           <div className="w-[1px] h-4 bg-ivory/20 hidden sm:block" />
-          <p className="text-ivory/80 text-sm font-body">Serving across India & globally</p>
+          <p className="text-ivory/80 text-sm font-body">Based in Hyderabad • Serving globally</p>
         </motion.div>
 
-        {/* CTAs */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
@@ -123,7 +117,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         animate={{ y: [0, 10, 0] }}

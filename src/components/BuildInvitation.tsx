@@ -18,7 +18,7 @@ const themeColors: Record<string, { bg: string; accent: string; text: string }> 
   "Christian-Floral": { bg: "from-violet-100 to-purple-50", accent: "text-violet-500", text: "text-violet-900" },
 };
 
-const WHATSAPP_BASE = "https://wa.me/919999999999?text=";
+const WHATSAPP_BASE = "https://wa.me/919160703822?text=";
 
 const BuildInvitation = () => {
   const [culture, setCulture] = useState("Hindu");
@@ -50,15 +50,14 @@ const BuildInvitation = () => {
         >
           <p className="font-script text-gold text-2xl mb-3">Interactive Experience</p>
           <h2 className="font-display text-3xl md:text-5xl text-foreground mb-4">
-            Design Your Dream <span className="text-gradient-gold italic">Invitation</span>
+            Design Your Dream <span className="text-gradient-gold italic">Wedding Card</span>
           </h2>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            Choose your style and see a live preview — then let's bring it to life together.
+            Choose your style and see a live preview — then let's bring your shaadi invitation to life.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Controls */}
           <motion.div
             className="space-y-8"
             initial={{ opacity: 0, x: -30 }}
@@ -134,7 +133,6 @@ const BuildInvitation = () => {
             </a>
           </motion.div>
 
-          {/* Live Preview Card */}
           <motion.div
             className={`rounded-3xl p-8 md:p-12 bg-gradient-to-br ${colors.bg} shadow-elevated relative overflow-hidden min-h-[400px] flex flex-col items-center justify-center text-center`}
             initial={{ opacity: 0, x: 30 }}
@@ -142,7 +140,6 @@ const BuildInvitation = () => {
             transition={{ delay: 0.4 }}
             key={key}
           >
-            {/* Decorative corners */}
             <div className={`absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 ${colors.accent.replace("text", "border")} opacity-50`} />
             <div className={`absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 ${colors.accent.replace("text", "border")} opacity-50`} />
 
@@ -172,7 +169,6 @@ const BuildInvitation = () => {
               March 15, 2026 • The Grand Palace
             </p>
 
-            {/* Feature badges */}
             <div className="flex flex-wrap justify-center gap-2">
               {selectedFeatures.map((f) => (
                 <motion.span

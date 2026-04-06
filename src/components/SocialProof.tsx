@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { useRef, useEffect } from "react";
 import { Heart, Users, Globe, Award } from "lucide-react";
 
 const stats = [
@@ -10,31 +10,23 @@ const stats = [
 ];
 
 const Counter = ({ target, decimal, suffix }: { target: number; decimal?: boolean; suffix: string }) => {
-  const [count, setCount] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
+  const spring = useSpring(0, { duration: 2500, bounce: 0 });
+  const display = useTransform(spring, (v) =>
+    decimal ? v.toFixed(1) : Math.floor(v).toString()
+  );
+
   useEffect(() => {
-    if (!inView) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = target / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(decimal ? parseFloat(current.toFixed(1)) : Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [inView, target, decimal]);
+    if (inView) {
+      spring.set(target);
+    }
+  }, [inView, target, spring]);
 
   return (
     <span ref={ref} className="font-display text-4xl md:text-5xl text-gold">
-      {decimal ? count.toFixed(1) : count}{suffix}
+      <motion.span>{display}</motion.span>{suffix}
     </span>
   );
 };

@@ -6,37 +6,37 @@ const services = [
   {
     icon: Globe,
     title: "Wedding Website Design",
-    desc: "Bespoke digital experiences that tell your unique love story with stunning visuals and seamless navigation.",
+    desc: "Bespoke wedding websites that tell your unique love story with stunning visuals, seamless navigation, and mobile-first design.",
   },
   {
     icon: Mail,
-    title: "Invitation & RSVP Systems",
-    desc: "Elegant digital invitations with smart RSVP tracking, WhatsApp integration, and real-time guest management.",
+    title: "Wedding Card & RSVP Systems",
+    desc: "Elegant digital shaadi cards with smart RSVP tracking, WhatsApp integration, and real-time guest management.",
   },
   {
     icon: Video,
     title: "Video Invitation Creation",
-    desc: "Cinematic video invitations with custom animations, music, and transitions that captivate your guests from the first frame.",
+    desc: "Cinematic video wedding invitations with custom animations, music, and transitions that captivate your guests.",
   },
   {
     icon: MapPin,
     title: "Venue Info Pages",
-    desc: "Beautiful venue guides with interactive maps, travel details, and accommodation recommendations.",
+    desc: "Beautiful venue guides with interactive maps, travel details, and accommodation recommendations for your guests.",
   },
   {
     icon: Palette,
     title: "Custom Theme Design",
-    desc: "Hand-crafted design themes reflecting your culture, personality, and wedding aesthetic down to every detail.",
+    desc: "Hand-crafted design themes for Hindu, Muslim, and Christian weddings reflecting your culture and personality.",
   },
   {
     icon: CalendarHeart,
     title: "Countdown & Event Timeline",
-    desc: "Engaging countdown timers and detailed event schedules keeping your guests informed and excited.",
+    desc: "Engaging countdown timers and detailed event schedules keeping your guests informed and excited about the shaadi.",
   },
   {
     icon: Gift,
     title: "Registry & Gifting Integration",
-    desc: "Seamlessly integrate gift registries so your guests can celebrate your journey with thoughtful presents.",
+    desc: "Seamlessly integrate gift registries and UPI payment links so your guests can celebrate with thoughtful presents.",
   },
   {
     icon: Smartphone,
@@ -65,7 +65,7 @@ const ServicesSection = () => {
             Crafting Every Detail of Your <span className="text-gradient-gold italic">Special Day</span>
           </h2>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            From the first invitation to the final thank-you, we design every digital touchpoint of your wedding journey.
+            From the first wedding card to the final thank-you, we design every digital touchpoint of your shaadi journey.
           </p>
         </motion.div>
 

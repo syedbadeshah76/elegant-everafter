@@ -9,16 +9,16 @@ import {
 
 const faqs = [
   {
-    q: "How long does it take to design a wedding website?",
+    q: "How long does it take to design a wedding card or website?",
     a: "Our standard turnaround is 5-7 business days. For rush orders, we offer a 48-hour express service. Every design goes through multiple rounds of refinement until you're completely in love with it.",
   },
   {
-    q: "Can you design for any culture or religion?",
-    a: "Absolutely! We specialize in Hindu, Muslim, Christian, and multi-cultural weddings. Our designers research cultural nuances to ensure every detail is authentic and respectful.",
+    q: "Can you design shaadi cards for any culture or religion?",
+    a: "Absolutely! We specialize in Hindu, Muslim, Christian, and multi-cultural wedding cards and websites. Our designers research cultural nuances to ensure every detail is authentic and respectful.",
   },
   {
     q: "How does the WhatsApp RSVP system work?",
-    a: "Your guests receive a beautifully designed invitation with a direct WhatsApp link. They can RSVP with a single tap, and you get real-time tracking of all responses in an organized dashboard.",
+    a: "Your guests receive a beautifully designed wedding invitation with a direct WhatsApp link. They can RSVP with a single tap, and you get real-time tracking of all responses in an organized dashboard.",
   },
   {
     q: "What's included in the wedding website package?",
@@ -27,6 +27,10 @@ const faqs = [
   {
     q: "Can I make changes after the website is live?",
     a: "Yes! We offer unlimited revisions before launch, and post-launch support for any updates you need — from adding new events to updating guest information.",
+  },
+  {
+    q: "Do you serve clients outside Hyderabad?",
+    a: "Yes! While we're based in Hyderabad, we serve couples across India and globally. Our entire process is digital — from consultation to delivery — so your location is never a limitation.",
   },
   {
     q: "Do you offer refunds?",

@@ -50,6 +50,21 @@ const BlogPostPage = () => {
 
   return (
     <main className="overflow-x-clip">
+      <SEO
+        title={`${post.title} | Weddy Dev Blog`}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        type="article"
+        jsonLd={[
+          organizationSchema,
+          articleSchema(post),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <Navbar />
       <div className="pt-24">
         <article className="py-16 md:py-24 bg-background">

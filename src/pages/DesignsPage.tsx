@@ -4,6 +4,12 @@ import { Eye, Star, ExternalLink, Filter } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
+import SEO from "@/components/SEO";
+import {
+  breadcrumbSchema,
+  localBusinessSchema,
+  organizationSchema,
+} from "@/lib/seo-schemas";
 
 import projectHinduRoyal from "@/assets/project-hindu-royal.jpg";
 import projectHinduTemple from "@/assets/project-hindu-temple.jpg";
@@ -123,6 +129,19 @@ const DesignsPage = () => {
 
   return (
     <main className="overflow-x-clip">
+      <SEO
+        title="Wedding Invitation Designs — Hindu, Muslim & Christian Shaadi Cards | Weddy Dev"
+        description="Browse our complete collection of premium wedding invitation websites and shaadi card designs. Custom themes for Hindu, Muslim, and Christian celebrations."
+        path="/designs"
+        jsonLd={[
+          organizationSchema,
+          localBusinessSchema,
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Designs", path: "/designs" },
+          ]),
+        ]}
+      />
       <Navbar />
       <div className="pt-24">
         <section className="py-16 md:py-24 bg-cream min-h-screen">

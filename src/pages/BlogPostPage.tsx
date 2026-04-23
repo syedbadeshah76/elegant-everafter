@@ -4,7 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import BlogCard from "@/components/BlogCard";
+import SEO from "@/components/SEO";
 import { blogPosts } from "@/data/blogData";
+import { articleSchema, breadcrumbSchema, organizationSchema } from "@/lib/seo-schemas";
 import { ArrowLeft, CalendarHeart, Clock, User, Share2 } from "lucide-react";
 
 const BlogPostPage = () => {
@@ -14,6 +16,12 @@ const BlogPostPage = () => {
   if (!post) {
     return (
       <main>
+        <SEO
+          title="Post Not Found | Weddy Dev Blog"
+          description="The blog post you are looking for could not be found."
+          path={`/blog/${slug ?? ""}`}
+          noIndex
+        />
         <Navbar />
         <div className="pt-24 min-h-screen flex items-center justify-center">
           <div className="text-center">
@@ -42,6 +50,21 @@ const BlogPostPage = () => {
 
   return (
     <main className="overflow-x-clip">
+      <SEO
+        title={`${post.title} | Weddy Dev Blog`}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        type="article"
+        jsonLd={[
+          organizationSchema,
+          articleSchema(post),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <Navbar />
       <div className="pt-24">
         <article className="py-16 md:py-24 bg-background">

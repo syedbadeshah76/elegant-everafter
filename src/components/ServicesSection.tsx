@@ -56,9 +56,9 @@ const ServicesSection = () => {
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0.01, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1 }}
+          transition={{ duration: 0.6 }}
         >
           <p className="font-script text-gold text-2xl mb-3">What We Offer</p>
           <h2 className="font-display text-3xl md:text-5xl text-foreground mb-4">
@@ -74,9 +74,9 @@ const ServicesSection = () => {
             <motion.div
               key={service.title}
               className="group p-8 rounded-2xl bg-card border border-border hover:border-gold/40 transition-all duration-500 hover:shadow-gold cursor-default"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
+              initial={{ opacity: 0.01, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 1 }}
+              transition={{ delay: Math.min(i * 0.05, 0.3), duration: 0.5 }}
               whileHover={{ y: -6 }}
             >
               <div className="w-14 h-14 rounded-xl gradient-gold flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">

@@ -82,7 +82,7 @@ const DesignCard = ({ design, index }: { design: DesignItem; index: number }) =>
             <Eye size={12} /> Preview
           </span>
         </div>
-        <div className="absolute top-3 right-3 gradient-gold text-primary-foreground font-display text-xs sm:text-sm px-3 py-1.5 rounded-full shadow-gold">
+        <div className="absolute top-3 right-3 gradient-gold text-primary-foreground font-display text-sm sm:text-base font-semibold px-4 py-2 rounded-full shadow-gold ring-2 ring-background/40 z-10">
           {design.price}
         </div>
         {design.badge && (

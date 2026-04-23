@@ -14,10 +14,22 @@ import ContactSection from "@/components/ContactSection";
 import FAQSection from "@/components/FAQSection";
 import FloatingButtons from "@/components/FloatingButtons";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import {
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/lib/seo-schemas";
 
 const Index = () => {
   return (
     <main className="overflow-x-clip">
+      <SEO
+        title="Weddy Dev — Premium Wedding Invitation Cards, Shaadi Websites & Digital Wedding Card Design in Hyderabad"
+        description="Weddy Dev crafts stunning wedding invitation cards, shaadi websites & digital invitations in Hyderabad. Custom designs for Hindu, Muslim & Christian weddings. Trusted by 500+ couples."
+        path="/"
+        jsonLd={[organizationSchema, localBusinessSchema, websiteSchema]}
+      />
       <LoadingScreen />
       <Navbar />
       <HeroSection />

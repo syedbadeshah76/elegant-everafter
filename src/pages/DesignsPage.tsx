@@ -186,14 +186,11 @@ const DesignsPage = () => {
             </motion.div>
 
             {/* Grid */}
-            <motion.div
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
-              layout
-            >
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {filtered.map((design, i) => (
                 <DesignCard key={design.title} design={design} index={i} />
               ))}
-            </motion.div>
+            </div>
 
             {/* Bottom CTA */}
             <motion.div

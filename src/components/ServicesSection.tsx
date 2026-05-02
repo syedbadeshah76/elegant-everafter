@@ -5,43 +5,43 @@ import { Globe, Mail, CalendarHeart, MapPin, Palette, Gift, Video, Smartphone } 
 const services = [
   {
     icon: Globe,
-    title: "Wedding Website Design",
-    desc: "Bespoke wedding websites that tell your unique love story with stunning visuals, seamless navigation, and mobile-first design.",
+    title: "Custom Wedding Invitation Website Design in India",
+    desc: "Create a premium wedding website with event details, love story, RSVP forms, and mobile-first design. Perfect for sharing your digital shaadi invitation link with guests.",
   },
   {
     icon: Mail,
-    title: "Wedding Card & RSVP Systems",
-    desc: "Elegant digital shaadi cards with smart RSVP tracking, WhatsApp integration, and real-time guest management.",
+    title: "Digital Wedding Cards with RSVP & WhatsApp Integration",
+    desc: "Send elegant wedding e-invites with smart RSVP tracking, guest management, and instant sharing via WhatsApp — ideal for Indian weddings.",
   },
   {
     icon: Video,
-    title: "Video Invitation Creation",
-    desc: "Cinematic video wedding invitations with custom animations, music, and transitions that captivate your guests.",
+    title: "Cinematic Wedding Video Invitations in India",
+    desc: "Get stunning video wedding invitations with music, animations, and storytelling — perfect for modern digital wedding invites.",
   },
   {
     icon: MapPin,
-    title: "Venue Info Pages",
-    desc: "Beautiful venue guides with interactive maps, travel details, and accommodation recommendations for your guests.",
+    title: "Wedding Venue Details Page with Maps & Guest Info",
+    desc: "Provide guests with a complete wedding venue guide, including Google Maps, accommodation, and travel info — all in one place.",
   },
   {
     icon: Palette,
-    title: "Custom Theme Design",
-    desc: "Hand-crafted design themes for Hindu, Muslim, and Christian weddings reflecting your culture and personality.",
+    title: "Custom Wedding Invitation Themes for Indian Weddings",
+    desc: "Choose from beautifully crafted Hindu, Muslim, and Christian wedding invitation designs or get a fully customized theme that reflects your culture, traditions, and love story.",
   },
   {
     icon: CalendarHeart,
-    title: "Countdown & Event Timeline",
-    desc: "Engaging countdown timers and detailed event schedules keeping your guests informed and excited about the shaadi.",
+    title: "Wedding Countdown Timer & Event Timeline for Guestse",
+    desc: "Add a live wedding countdown timer and detailed event schedule so guests never miss any function — from Haldi to Reception.",
   },
   {
     icon: Gift,
-    title: "Registry & Gifting Integration",
-    desc: "Seamlessly integrate gift registries and UPI payment links so your guests can celebrate with thoughtful presents.",
+    title: "Wedding Gift Registry with UPI & Payment Integration",
+    desc: "Allow guests to send gifts easily with UPI, payment links, and digital wedding gift registry integrated directly into your invitation website.",
   },
   {
     icon: Smartphone,
-    title: "Mobile App Experience",
-    desc: "Progressive web apps that give your guests a native app-like experience on any device — no download required.",
+    title: "Mobile-Friendly Wedding Website (App-Like Experience)",
+    desc: "Your wedding invitation website works like a mobile app — fast, responsive, and accessible on all devices without download.",
   },
 ];
 
@@ -61,12 +61,14 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="font-script text-gold text-2xl mb-3">What We Offer</p>
-          <h2 className="font-display text-3xl md:text-5xl text-foreground mb-4">
-            Crafting Every Detail of Your <span className="text-gradient-gold italic">Special Day</span>
+          <h2 className="font-display text-3xl md:text-3xl text-foreground mb-4">
+          Wedding Invitation Services in India –<span className="text-gradient-gold italic"> Websites, Cards & E-Invites</span>
           </h2>
+          <h3>
+            Complete Digital Wedding Invitation Solutions for Modern Indian Weddings
+          </h3>
           <p className="font-body text-muted-foreground max-w-xl mx-auto">
-            From the first wedding card to the final thank-you, we design every digital touchpoint of your shaadi journey.
-          </p>
+        From wedding invitation websites to digital wedding cards and video e-invites, we offer complete solutions for Hindu, Muslim, and Christian weddings in India with WhatsApp integration and RSVP tracking.  </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

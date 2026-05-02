@@ -10,7 +10,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Premium wedding invitation cards and shaadi website design by Weddy Dev"
+          alt="Luxury Wedding Invitation Websites & Cards in India"
           className="w-full h-full object-cover"
           loading="eager"
           width={1920}
@@ -34,23 +34,23 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.p
-          className="font-script text-gold-light text-xl md:text-2xl mb-6"
+          className="font-script text-gold-light text-xs md:text-2xl mb-6"
           initial={{ opacity: 0.01, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Where Dreams Meet Design
+        Custom Digital Wedding Invitations for Hindu, Muslim & Christian Weddings
         </motion.p>
 
         {/* Single semantic H1 with primary SEO keywords */}
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-ivory mb-4 leading-tight">
+        <h1 className="font-display text-4xl md:text-6xl lg:text-5xl text-ivory mb-4 leading-tight">
           <motion.span
             className="block"
             initial={{ opacity: 0.01, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Premium Wedding Invitation
+         Luxury Wedding Invitation Websites & Cards in India
           </motion.span>
           <motion.span
             className="block font-display italic text-gold mt-2 text-3xl md:text-5xl lg:text-6xl"
@@ -58,7 +58,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
           >
-            Website &amp; Wedding Cards
+        wedding invitation websites
           </motion.span>
         </h1>
 
@@ -68,8 +68,8 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Custom wedding cards, digital shaadi invitations &amp; stunning wedding websites — crafted for Hindu, Muslim &amp; Christian celebrations across India.
-        </motion.p>
+     Create stunning premium wedding invitation websites and cards designed for modern Indian weddings.
+We craft digital shaadi invites, e-invites, and custom wedding websites tailored for Hindu, Muslim, and Christian ceremonies across India.  </motion.p>
 
         <motion.div
           className="flex flex-wrap items-center justify-center gap-6 mb-10"
@@ -99,7 +99,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.97 }}
             className="px-8 py-4 gradient-gold text-primary-foreground font-body text-sm tracking-widest uppercase rounded-full shadow-gold transition-shadow duration-300 hover:shadow-lg"
           >
-            Start Your Wedding Journey
+          Create Your Wedding Invitation Website
           </motion.a>
           <motion.a
             href="/designs"
@@ -107,7 +107,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.97 }}
             className="px-8 py-4 border border-ivory/40 text-ivory font-body text-sm tracking-widest uppercase rounded-full hover:border-gold hover:text-gold transition-colors duration-300"
           >
-            View Our Designs
+          Explore Wedding Card Designs
           </motion.a>
         </motion.div>
       </div>

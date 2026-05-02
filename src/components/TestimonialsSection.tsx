@@ -4,8 +4,8 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "They didn't just design our wedding website — they captured the essence of our love story. Every guest was blown away.",
-    couple: "Priya & Arjun Sharma",
+    quote: "They didn’t just design our wedding invitation website — they created a complete digital experience. The RSVP system and WhatsApp sharing made it super easy for our guests. Highly recommended for anyone looking for digital wedding invitations in India.",
+    couple: "Priya & Arjun Sharma, Mumbai",
     location: "Mumbai, India",
     rating: 5,
   },
@@ -46,8 +46,8 @@ const TestimonialsSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
         >
           <p className="font-script text-gold text-2xl mb-3">Love Notes</p>
-          <h2 className="font-display text-3xl md:text-5xl text-foreground mb-16">
-            Words From Our <span className="text-gradient-gold italic">Couples</span>
+          <h2 className="font-display text-3xl md:text-3xl text-foreground mb-16">
+           Real Reviews for Wedding <span className="text-gradient-gold italic">Invitation Websites in India </span>
           </h2>
         </motion.div>
 

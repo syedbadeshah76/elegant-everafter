@@ -18,19 +18,18 @@ const MidCTA = () => {
         transition={{ duration: 0.7 }}
       >
         <Sparkles className="mx-auto text-gold mb-4" size={32} />
-        <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
-          Ready to Create Your <span className="text-gradient-gold italic">Shaadi Invitation?</span>
+        <h2 className="font-display text-3xl md:text-2xl text-foreground mb-4">
+       Create Your Wedding Invitation <span className="text-gradient-gold italic">Website & Digital Cards in India</span>
         </h2>
         <p className="font-body text-muted-foreground mb-8 max-w-lg mx-auto">
-          Every great love story deserves a stunning wedding card and website. Let's craft yours together — from Hyderabad to the world.
-        </p>
+      Design your premium wedding invitation website, e-invites, and wedding cards with custom themes, RSVP tracking, and WhatsApp integration — crafted for Indian weddings. </p>
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-10 py-4 gradient-gold text-primary-foreground font-body text-sm tracking-widest uppercase rounded-full shadow-gold hover:scale-105 transition-transform"
         >
-          Let's Design Your Wedding Cards
+        View Wedding Invitation Designs
         </a>
       </motion.div>
     </section>

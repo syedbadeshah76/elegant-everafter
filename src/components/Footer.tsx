@@ -18,7 +18,7 @@ const Footer = () => (
               <Mail size={12} /> weddydevv@gmail.com
             </a>
             <p className="flex items-center gap-2 font-body text-xs text-muted-foreground">
-              <MapPin size={12} /> Hyderabad, India
+              <MapPin size={12} /> Hyderabad
             </p>
           </div>
         </div>
@@ -63,7 +63,7 @@ const Footer = () => (
           © 2026 Weddy Dev. Made with <Heart size={12} className="text-gold" /> in Hyderabad for love stories everywhere.
         </p>
         <p className="font-body text-xs text-muted-foreground">
-          Wedding Cards • Shaadi Invitations • Marriage Website Design • Hyderabad
+          Wedding Cards • Wedding Cards Design • Marriage Website • Hyderabad
         </p>
       </div>
     </div>

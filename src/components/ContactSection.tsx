@@ -132,7 +132,7 @@ const ContactSection = () => {
             {[
               { icon: Phone, label: "Call Us", value: "+91 91607 03822", href: "tel:+919160703822" },
               { icon: Mail, label: "Email Us", value: "weddydevv@gmail.com", href: "mailto:weddydevv@gmail.com" },
-              { icon: MapPin, label: "Based In", value: "Hyderabad, India • Serving Globally" },
+              { icon: MapPin, label: "Based In", value: "Hyderabad • Serving Globally" },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl gradient-gold flex items-center justify-center flex-shrink-0">

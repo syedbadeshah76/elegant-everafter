@@ -19,10 +19,10 @@ const MidCTA = () => {
       >
         <Sparkles className="mx-auto text-gold mb-4" size={32} />
         <h2 className="font-display text-3xl md:text-2xl text-foreground mb-4">
-       Create Your Wedding Invitation <span className="text-gradient-gold italic">Website & Digital Cards in India</span>
+       Create Your Wedding Invitation <span className="text-gradient-gold italic">Website & Digital Cards</span>
         </h2>
         <p className="font-body text-muted-foreground mb-8 max-w-lg mx-auto">
-      Design your premium wedding invitation website, e-invites, and wedding cards with custom themes, RSVP tracking, and WhatsApp integration — crafted for Indian weddings. </p>
+      Design your premium wedding invitation website, e-invites, and wedding cards with custom themes, RSVP tracking, and WhatsApp integration. </p>
         <a
           href={WHATSAPP_URL}
           target="_blank"

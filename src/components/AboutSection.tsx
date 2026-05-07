@@ -48,7 +48,7 @@ const AboutSection = () => {
           >
             <p className="font-script text-gold text-2xl mb-3">Who We Are</p>
             <h2 className="font-display text-3xl md:text-3xl text-foreground mb-4">
-            About Our Wedding Invitation Website <span className="text-gradient-gold italic">Design Company in India</span>
+            About Our Wedding Invitation Website <span className="text-gradient-gold italic">Design Studio</span>
             </h2>
             {/* <p>Expert Designers & Developers Creating Premium Wedding Invitations</p> */}
           </motion.div>
@@ -86,9 +86,9 @@ const AboutSection = () => {
          Expert Designers & Developers Creating Premium Wedding Invitations
               </h3>
               <p className="font-body text-muted-foreground leading-relaxed mb-4">
-         At Weddy Dev, we specialize in creating wedding invitation websites, digital wedding cards, and e-invites in India that deliver a premium experience for modern couples.  </p>
+         At Weddy Dev, we specialize in creating wedding invitation websites, digital wedding cards, and e-invites that deliver a premium experience for modern couples. </p>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
-          Based in Hyderabad, our team of designers and developers has helped 500+ couples create stunning wedding websites and digital invitations with features like RSVP tracking, WhatsApp integration, and mobile-first design.  </p>
+          Based in Hyderabad, our team of designers and developers has helped 500+ couples create stunning wedding websites and digital invitations with features like RSVP tracking, WhatsApp integration, and mobile-first design. </p>
             <p>From Hindu, Muslim, and Christian wedding invitations to multi-cultural celebrations, we design fully customized solutions tailored to your love story.</p>
               <div className="flex flex-wrap gap-6 sm:gap-8">
                 <div>

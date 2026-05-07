@@ -4,27 +4,33 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "They didn’t just design our wedding invitation website — they created a complete digital experience. The RSVP system and WhatsApp sharing made it super easy for our guests. Highly recommended for anyone looking for digital wedding invitations in India.",
-    couple: "Priya & Arjun Sharma, Mumbai",
+    quote: "They didn't just design our wedding invitation website — they created a complete digital experience. The RSVP system and WhatsApp sharing made it super easy for our guests. Highly recommended!",
+    couple: "Priya & Arjun Sharma",
     location: "Mumbai, India",
     rating: 5,
   },
   {
-    quote: "The level of detail and personalization was beyond anything we imagined. Our nikah invitation was a masterpiece.",
-    couple: "Ayesha & Farid Khan",
-    location: "Dubai, UAE",
+    quote: "The level of detail and personalization was beyond anything we imagined. Our nikah invitation was a masterpiece — every guest complimented the design.",
+    couple: "Aisha & Faraz Khan",
+    location: "Hyderabad, India",
     rating: 5,
   },
   {
-    quote: "From concept to delivery, the experience was seamless. Our guests are still talking about how beautiful our wedding site was!",
-    couple: "Grace & Thomas Anderson",
+    quote: "From concept to delivery, the experience was seamless. Our guests are still talking about how beautiful our wedding website was!",
+    couple: "Anjali & Karthik Reddy",
     location: "Bangalore, India",
     rating: 5,
   },
   {
-    quote: "The interactive RSVP system made planning so much easier. And the design? Pure magic. Worth every penny.",
+    quote: "The interactive RSVP and beautiful wedding cards design made planning so much easier. Pure magic — worth every rupee.",
     couple: "Meera & Rohan Patel",
-    location: "London, UK",
+    location: "Pune, India",
+    rating: 5,
+  },
+  {
+    quote: "We chose Weddy Dev for our destination wedding and it was the best decision. Stunning visuals and rated 4.9/5 by all our family members!",
+    couple: "Neha & Vikram Iyer",
+    location: "Chennai, India",
     rating: 5,
   },
 ];
@@ -46,13 +52,16 @@ const TestimonialsSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
         >
           <p className="font-script text-gold text-2xl mb-3">Love Notes</p>
-          <h2 className="font-display text-3xl md:text-3xl text-foreground mb-16">
-           Real Reviews for Wedding <span className="text-gradient-gold italic">Invitation Websites in India </span>
+          <h2 className="font-display text-3xl md:text-3xl text-foreground mb-4">
+           Real Reviews for Wedding <span className="text-gradient-gold italic">Invitation Websites</span>
           </h2>
+          <p className="font-body text-muted-foreground">
+            Rated <span className="text-gold font-semibold">4.9 out of 5</span> by 500+ couples across India
+          </p>
         </motion.div>
 
         <motion.div
-          className="relative"
+          className="relative mt-12"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.3 }}

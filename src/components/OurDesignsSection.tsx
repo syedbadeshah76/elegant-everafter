@@ -222,11 +222,6 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
           </motion.span>
         </div>
 
-        {/* Price badge */}
-        <div className="absolute top-3 right-3 gradient-gold text-primary-foreground font-display text-sm sm:text-base font-semibold px-4 py-2 rounded-full shadow-gold ring-2 ring-background/40 z-10">
-          {design.price}
-        </div>
-
         {/* Status badge */}
         {design.badge && (
           <div className={`absolute top-3 left-3 font-body text-[10px] sm:text-xs px-2.5 py-1 rounded-full flex items-center gap-1 ${

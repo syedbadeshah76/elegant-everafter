@@ -244,10 +244,13 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
 
       {/* Info */}
       <div className="p-4 sm:p-5">
-        <h4 className="font-display text-base sm:text-lg text-foreground mb-2 group-hover:text-gold transition-colors">
+        <h4 className="font-display text-base sm:text-lg text-foreground mb-1 group-hover:text-gold transition-colors">
           {design.title}
         </h4>
-        <div className="flex flex-wrap gap-1.5">
+        <p className="font-body text-xs text-muted-foreground mb-3 leading-relaxed">
+          {design.subtitle}
+        </p>
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {design.features.map((feature) => (
             <span
               key={feature}
@@ -256,6 +259,21 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
               {feature}
             </span>
           ))}
+        </div>
+
+        {/* Highlighted price */}
+        <div className="flex items-end justify-between pt-3 border-t border-border">
+          <div className="flex items-baseline gap-2">
+            <span className="font-display text-xl sm:text-2xl font-bold text-gold">{design.price}</span>
+            {design.originalPrice && (
+              <span className="font-body text-xs sm:text-sm text-muted-foreground line-through">{design.originalPrice}</span>
+            )}
+          </div>
+          {design.originalPrice && (
+            <span className="font-body text-[10px] uppercase tracking-wider bg-emerald-500/15 text-emerald-700 px-2 py-1 rounded-full font-semibold">
+              Limited Offer
+            </span>
+          )}
         </div>
       </div>
     </motion.a>

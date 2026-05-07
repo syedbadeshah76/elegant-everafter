@@ -36,9 +36,9 @@
 
     --radius: 0.5rem;
 
-    --gold: 37 38% 60%;
-    --gold-light: 37 45% 75%;
-    --gold-dark: 37 35% 45%;
+    --gold: 38 75% 52%;
+    --gold-light: 42 85% 68%;
+    --gold-dark: 36 70% 40%;
     --ivory: 40 33% 98%;
     --blush: 350 40% 88%;
     --blush-deep: 350 35% 75%;
@@ -50,7 +50,7 @@
     --font-body: 'DM Sans', system-ui, sans-serif;
     --font-script: 'Great Vibes', cursive;
 
-    --gradient-gold: linear-gradient(135deg, hsl(37 45% 75%), hsl(37 38% 60%), hsl(37 35% 45%));
+    --gradient-gold: hsl(38 80% 50%);
     --gradient-blush: linear-gradient(135deg, hsl(350 40% 92%), hsl(350 40% 85%));
     --gradient-hero: linear-gradient(180deg, hsla(220 45% 20% / 0.7), hsla(220 45% 20% / 0.4));
     --gradient-navy: linear-gradient(135deg, hsl(220 45% 15%), hsl(220 45% 25%));

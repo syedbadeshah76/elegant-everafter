@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
@@ -36,7 +36,7 @@ const Navbar = () => {
             Weddy Dev
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -49,22 +49,36 @@ const Navbar = () => {
               </Link>
             ))}
             <a
+              href="tel:+919160703822"
+              className="flex items-center gap-2 px-4 py-2 border border-gold/60 text-gold font-body text-sm rounded-full hover:bg-gold hover:text-primary-foreground transition-all duration-300"
+            >
+              <Phone size={14} /> 91607 03822
+            </a>
+            <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 gradient-gold text-primary-foreground font-body text-sm tracking-wide rounded-full shadow-gold hover:shadow-lg transition-all duration-300"
+              className="px-5 py-2.5 gradient-gold text-primary-foreground font-body text-sm tracking-wide rounded-full shadow-gold hover:shadow-lg transition-all duration-300"
             >
               Book Now
             </a>
           </div>
 
-          <button
-            className="md:hidden text-ivory z-10"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <a
+              href="tel:+919160703822"
+              className="flex items-center gap-1.5 px-3 py-1.5 gradient-gold text-primary-foreground font-body text-xs rounded-full"
+            >
+              <Phone size={12} /> Call
+            </a>
+            <button
+              className="text-ivory z-10"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 

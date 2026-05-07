@@ -2,14 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Sparkles, Check } from "lucide-react";
 
-const cultures = ["Hindu", "Muslim", "Christian"];
+const cultures = ["Special Cultural Hindu", "Muslim", "Christian"];
 const themes = ["Royal", "Minimal", "Floral"];
 const features = ["RSVP", "Countdown", "Gallery", "Venue Map"];
 
 const themeColors: Record<string, { bg: string; accent: string; text: string }> = {
-  "Hindu-Royal": { bg: "from-red-900 to-amber-900", accent: "text-amber-300", text: "text-amber-100" },
-  "Hindu-Minimal": { bg: "from-orange-50 to-amber-50", accent: "text-orange-600", text: "text-orange-900" },
-  "Hindu-Floral": { bg: "from-rose-100 to-pink-50", accent: "text-rose-500", text: "text-rose-900" },
+  "Special Cultural Hindu-Royal": { bg: "from-red-900 to-amber-900", accent: "text-amber-300", text: "text-amber-100" },
+  "Special Cultural Hindu-Minimal": { bg: "from-orange-50 to-amber-50", accent: "text-orange-600", text: "text-orange-900" },
+  "Special Cultural Hindu-Floral": { bg: "from-rose-100 to-pink-50", accent: "text-rose-500", text: "text-rose-900" },
   "Muslim-Royal": { bg: "from-emerald-900 to-teal-900", accent: "text-emerald-300", text: "text-emerald-100" },
   "Muslim-Minimal": { bg: "from-teal-50 to-green-50", accent: "text-teal-600", text: "text-teal-900" },
   "Muslim-Floral": { bg: "from-green-100 to-emerald-50", accent: "text-green-500", text: "text-green-900" },
@@ -21,14 +21,14 @@ const themeColors: Record<string, { bg: string; accent: string; text: string }> 
 const WHATSAPP_BASE = "https://wa.me/919160703822?text=";
 
 const BuildInvitation = () => {
-  const [culture, setCulture] = useState("Hindu");
+  const [culture, setCulture] = useState("Special Cultural Hindu");
   const [theme, setTheme] = useState("Royal");
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>(["RSVP"]);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const key = `${culture}-${theme}`;
-  const colors = themeColors[key] || themeColors["Hindu-Royal"];
+  const colors = themeColors[key] || themeColors["Special Cultural Hindu-Royal"];
 
   const toggleFeature = (f: string) => {
     setSelectedFeatures((prev) =>
@@ -150,7 +150,7 @@ const BuildInvitation = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              {culture === "Muslim" ? "Bismillah" : culture === "Hindu" ? "Shubh Vivah" : "Holy Matrimony"}
+              {culture === "Muslim" ? "Bismillah" : culture === "Christian" ? "Holy Matrimony" : "Shubh Vivah"}
             </motion.p>
 
             <motion.h3

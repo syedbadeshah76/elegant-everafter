@@ -1,125 +1,246 @@
-import { motion } from "framer-motion";
-import { ChevronDown, Star } from "lucide-react";
-import heroImage from "@/assets/herosection.png";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Star, Phone, MessageCircle, ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Zap } from "lucide-react";
+import projectHinduRoyal from "@/assets/project-hindu-royal.jpg";
+import projectMuslimNikah from "@/assets/project-muslim-nikah.jpg";
+import projectChristianGarden from "@/assets/project-christian-garden.jpg";
+import projectGeneralModern from "@/assets/project-general-modern.jpg";
+import projectHinduFloral from "@/assets/project-hindu-floral.jpg";
 
 const WHATSAPP_URL = "https://wa.me/919160703822?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
+const PHONE_URL = "tel:+919160703822";
+
+const slides = [
+  {
+    image: projectHinduRoyal,
+    title: "Royal Rajputana",
+    tagline: "Regal heritage meets modern interactivity",
+    features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"],
+  },
+  {
+    image: projectMuslimNikah,
+    title: "Elegant Nikah",
+    tagline: "Bilingual elegance with timeless calligraphy",
+    features: ["Bilingual Content", "RSVP System", "Guest Manager"],
+  },
+  {
+    image: projectChristianGarden,
+    title: "Garden Romance",
+    tagline: "Soft botanicals for an enchanting celebration",
+    features: ["Photo Gallery", "Venue Map", "Timeline"],
+  },
+  {
+    image: projectGeneralModern,
+    title: "Modern Luxe",
+    tagline: "Minimal luxury crafted for the modern couple",
+    features: ["Premium Design", "Music Player", "Priority Support"],
+  },
+  {
+    image: projectHinduFloral,
+    title: "Floral Mehendi",
+    tagline: "Lush florals & vibrant mehendi vibes",
+    features: ["Photo Gallery", "Countdown", "RSVP"],
+  },
+];
 
 const HeroSection = () => {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(() => setActive((i) => (i + 1) % slides.length), 4500);
+    return () => clearInterval(t);
+  }, [paused]);
+
+  const next = () => setActive((i) => (i + 1) % slides.length);
+  const prev = () => setActive((i) => (i - 1 + slides.length) % slides.length);
+  const slide = slides[active];
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Luxury Wedding Invitation Websites & Cards in India"
-          className="w-full h-full object-cover"
-          loading="eager"
-          width={1920}
-          height={1080}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/55 to-navy/85" />
-      </div>
-
+    <section id="hero" className="relative min-h-screen pt-24 pb-12 md:pt-28 md:pb-20 overflow-hidden gradient-navy">
+      {/* Decorative luxury elements */}
       <motion.div
-        className="absolute top-20 left-10 w-32 h-32 rounded-full border border-gold/20 hidden md:block"
-        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden="true"
+        className="absolute top-20 -left-20 w-80 h-80 rounded-full bg-gold/10 blur-3xl pointer-events-none"
+        animate={{ scale: [1, 1.15, 1] }}
+        transition={{ duration: 8, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-32 right-16 w-20 h-20 rounded-full border border-gold/15 hidden md:block"
-        animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        aria-hidden="true"
+        className="absolute bottom-10 -right-20 w-96 h-96 rounded-full bg-gold/10 blur-3xl pointer-events-none"
+        animate={{ scale: [1.1, 1, 1.1] }}
+        transition={{ duration: 10, repeat: Infinity }}
       />
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "radial-gradient(hsl(var(--gold)) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <motion.p
-          className="font-script text-gold-light text-xs md:text-2xl mb-6"
-          initial={{ opacity: 0.01, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-        Custom Digital Wedding Invitations for Hindu, Muslim & Christian Weddings
-        </motion.p>
-
-        {/* Single semantic H1 with primary SEO keywords */}
-        <h1 className="font-display text-4xl md:text-6xl lg:text-5xl text-ivory mb-4 leading-tight">
-          <motion.span
-            className="block"
-            initial={{ opacity: 0.01, y: 20 }}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center min-h-[calc(100vh-7rem)]">
+        {/* LEFT: Content */}
+        <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-sm mb-5"
           >
-         Luxury Wedding Invitation Websites & Cards in India
-          </motion.span>
-          <motion.span
-            className="block font-display italic text-gold mt-2 text-3xl md:text-5xl lg:text-6xl"
-            initial={{ opacity: 0.01, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-          >
-        wedding invitation websites
-          </motion.span>
-        </h1>
+            <Sparkles size={14} className="text-gold" />
+            <span className="font-body text-xs tracking-widest uppercase text-gold-light">Luxury Digital Wedding Invitations</span>
+          </motion.div>
 
-        <motion.p
-          className="font-body text-ivory/80 text-base md:text-lg max-w-xl mx-auto mb-10 mt-6"
-          initial={{ opacity: 0.01 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-     Create stunning premium wedding invitation websites and cards designed for modern Indian weddings.
-We craft digital shaadi invites, e-invites, and custom wedding websites tailored for Hindu, Muslim, and Christian ceremonies across India.  </motion.p>
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-ivory leading-[1.1] mb-5">
+            <motion.span initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="block">
+              Premium Wedding Invitation Cards &
+            </motion.span>
+            <motion.span initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.05 }} className="block italic text-gold">
+              Wedding Invitation Websites
+            </motion.span>
+          </h1>
 
-        <motion.div
-          className="flex flex-wrap items-center justify-center gap-6 mb-10"
-          initial={{ opacity: 0.01 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <div className="flex items-center gap-1.5 text-gold-light text-sm font-body">
-            <Star size={14} fill="currentColor" />
-            <span className="text-ivory/80">Trusted by 500+ couples</span>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.1 }} className="font-body text-base sm:text-lg text-ivory/80 mb-7 max-w-xl mx-auto lg:mx-0">
+            Replace dull paper cards with stunning digital wedding invitations. Custom-crafted wedding cards design for Hindu, Muslim & Christian celebrations — with RSVP, WhatsApp share, and guest dashboards.
+          </motion.p>
+
+          {/* Trust strip */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-7 text-sm">
+            <div className="flex items-center gap-1.5">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={14} className="text-gold fill-gold" />
+              ))}
+              <span className="text-ivory/80 font-body ml-1">4.9/5 · 500+ couples</span>
+            </div>
+            <span className="hidden sm:block w-px h-4 bg-ivory/20" />
+            <span className="flex items-center gap-1.5 text-ivory/70 font-body"><ShieldCheck size={14} className="text-gold" /> Trusted Studio</span>
+            <span className="flex items-center gap-1.5 text-ivory/70 font-body"><Zap size={14} className="text-gold" /> 48hr Delivery</span>
           </div>
-          <div className="w-[1px] h-4 bg-ivory/20 hidden sm:block" />
-          <p className="text-ivory/80 text-sm font-body">Based in Hyderabad • Serving globally</p>
-        </motion.div>
 
-        <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          initial={{ opacity: 0.01, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+            <motion.a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 gradient-gold text-primary-foreground font-body text-sm tracking-widest uppercase rounded-full shadow-gold"
+            >
+              <MessageCircle size={16} /> Get Free Demo
+            </motion.a>
+            <motion.a
+              href={PHONE_URL}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-gold/60 text-gold font-body text-sm tracking-widest uppercase rounded-full hover:bg-gold/10 transition-colors"
+            >
+              <Phone size={16} /> Call 9160703822
+            </motion.a>
+          </div>
+
+          <p className="mt-5 font-script text-gold-light text-xl">— Hyderabad · Serving couples worldwide</p>
+        </div>
+
+        {/* RIGHT: Carousel */}
+        <div
+          className="relative w-full max-w-xl mx-auto lg:mx-0"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
         >
-          <motion.a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="px-8 py-4 gradient-gold text-primary-foreground font-body text-sm tracking-widest uppercase rounded-full shadow-gold transition-shadow duration-300 hover:shadow-lg"
-          >
-          Create Your Wedding Invitation Website
-          </motion.a>
-          <motion.a
-            href="/designs"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="px-8 py-4 border border-ivory/40 text-ivory font-body text-sm tracking-widest uppercase rounded-full hover:border-gold hover:text-gold transition-colors duration-300"
-          >
-          Explore Wedding Card Designs
-          </motion.a>
-        </motion.div>
-      </div>
+          {/* Floating ornaments */}
+          <motion.div
+            className="absolute -top-6 -left-6 w-16 h-16 border-2 border-gold/40 rounded-2xl hidden md:block"
+            animate={{ rotate: [0, 8, 0] }}
+            transition={{ duration: 6, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute -bottom-6 -right-6 w-20 h-20 border-2 border-gold/30 rounded-full hidden md:block"
+            animate={{ rotate: [0, -10, 0] }}
+            transition={{ duration: 7, repeat: Infinity }}
+          />
 
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        aria-hidden="true"
-      >
-        <ChevronDown className="text-ivory/40" size={28} />
-      </motion.div>
+          <div className="relative rounded-3xl overflow-hidden border border-gold/30 shadow-elevated bg-card">
+            <div className="relative aspect-[4/5] sm:aspect-[5/6] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={slide.image}
+                  src={slide.image}
+                  alt={`${slide.title} wedding invitation design`}
+                  loading="eager"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                />
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
+
+              {/* Slide info */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={slide.title}
+                  className="absolute bottom-0 left-0 right-0 p-5 sm:p-6"
+                  initial={{ y: 24, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <p className="font-script text-gold text-xl sm:text-2xl mb-1">Featured Design</p>
+                  <h3 className="font-display text-2xl sm:text-3xl text-ivory mb-2">{slide.title}</h3>
+                  <p className="font-body text-sm text-ivory/80 mb-3">{slide.tagline}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {slide.features.map((f) => (
+                      <span key={f} className="font-body text-[10px] sm:text-xs uppercase tracking-wider text-gold-light bg-ivory/10 backdrop-blur-sm border border-gold/30 px-2.5 py-1 rounded-full">
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Arrows */}
+              <button
+                onClick={prev}
+                aria-label="Previous design"
+                className="absolute top-1/2 -translate-y-1/2 left-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-background/70 backdrop-blur-sm border border-gold/40 flex items-center justify-center text-gold hover:bg-gold hover:text-primary-foreground transition-all"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={next}
+                aria-label="Next design"
+                className="absolute top-1/2 -translate-y-1/2 right-3 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-background/70 backdrop-blur-sm border border-gold/40 flex items-center justify-center text-gold hover:bg-gold hover:text-primary-foreground transition-all"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 py-3 bg-card">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${i === active ? "w-7 bg-gold" : "w-2 bg-border"}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Floating rating card */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="hidden sm:flex absolute -left-4 lg:-left-10 top-8 items-center gap-3 bg-background border border-gold/30 rounded-2xl shadow-gold px-4 py-3"
+          >
+            <div className="w-10 h-10 rounded-full gradient-gold flex items-center justify-center">
+              <Star size={18} className="text-primary-foreground fill-primary-foreground" />
+            </div>
+            <div>
+              <p className="font-display text-lg text-foreground leading-none">4.9/5</p>
+              <p className="font-body text-[10px] uppercase tracking-widest text-muted-foreground">500+ Reviews</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

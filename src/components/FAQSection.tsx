@@ -32,10 +32,6 @@ const faqs = [
     q: "Do you serve clients outside Hyderabad?",
     a: "Yes! While we're based in Hyderabad, we serve couples across India and globally. Our entire process is digital — from consultation to delivery — so your location is never a limitation.",
   },
-  {
-    q: "Do you offer refunds?",
-    a: "We offer a 100% satisfaction guarantee. If you're not happy with the initial concepts, we'll refund your deposit. However, this has never happened — our clients always love what we create!",
-  },
 ];
 
 const FAQSection = () => {

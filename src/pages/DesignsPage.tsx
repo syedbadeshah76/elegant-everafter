@@ -90,9 +90,6 @@ const DesignCard = ({ design, index }: { design: DesignItem; index: number }) =>
             <Eye size={12} /> Preview
           </span>
         </div>
-        <div className="absolute top-3 right-3 gradient-gold text-primary-foreground font-display text-sm sm:text-base font-semibold px-4 py-2 rounded-full shadow-gold ring-2 ring-background/40 z-10">
-          {design.price}
-        </div>
         {design.badge && (
           <div className={`absolute top-3 left-3 font-body text-[10px] sm:text-xs px-2.5 py-1 rounded-full flex items-center gap-1 ${
             design.badge === "Popular" ? "bg-accent text-accent-foreground"
@@ -103,22 +100,34 @@ const DesignCard = ({ design, index }: { design: DesignItem; index: number }) =>
             {design.badge}
           </div>
         )}
+        <span className="absolute top-3 right-3 text-[10px] font-body text-ivory bg-navy/70 backdrop-blur-sm px-2 py-0.5 rounded-full">
+          {design.category}
+        </span>
       </div>
       <div className="p-4 sm:p-5">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="font-display text-base sm:text-lg text-foreground group-hover:text-gold transition-colors">
-            {design.title}
-          </h3>
-          <span className="text-[10px] font-body text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
-            {design.category}
-          </span>
-        </div>
-        <div className="flex flex-wrap gap-1.5">
+        <h3 className="font-display text-base sm:text-lg text-foreground mb-1 group-hover:text-gold transition-colors">
+          {design.title}
+        </h3>
+        <p className="font-body text-xs text-muted-foreground mb-3 leading-relaxed">{design.subtitle}</p>
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {design.features.map((feature) => (
             <span key={feature} className="font-body text-[10px] sm:text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
               {feature}
             </span>
           ))}
+        </div>
+        <div className="flex items-end justify-between pt-3 border-t border-border">
+          <div className="flex items-baseline gap-2">
+            <span className="font-display text-xl sm:text-2xl font-bold text-gold">{design.price}</span>
+            {design.originalPrice && (
+              <span className="font-body text-xs sm:text-sm text-muted-foreground line-through">{design.originalPrice}</span>
+            )}
+          </div>
+          {design.originalPrice && (
+            <span className="font-body text-[10px] uppercase tracking-wider bg-emerald-500/15 text-emerald-700 px-2 py-1 rounded-full font-semibold">
+              Limited Offer
+            </span>
+          )}
         </div>
       </div>
     </motion.a>

@@ -18,7 +18,7 @@ const Footer = () => (
               <Mail size={12} /> weddydevv@gmail.com
             </a>
             <p className="flex items-center gap-2 font-body text-xs text-muted-foreground">
-              <MapPin size={12} /> Hyderabad, India
+              <MapPin size={12} /> Hyderabad
             </p>
           </div>
         </div>

@@ -63,7 +63,7 @@ const Footer = () => (
           © 2026 Weddy Dev. Made with <Heart size={12} className="text-gold" /> in Hyderabad for love stories everywhere.
         </p>
         <p className="font-body text-xs text-muted-foreground">
-          Wedding Cards • Shaadi Invitations • Marriage Website Design • Hyderabad
+          Wedding Cards • Wedding Cards Design • Marriage Website • Hyderabad
         </p>
       </div>
     </div>

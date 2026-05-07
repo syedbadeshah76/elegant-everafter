@@ -70,9 +70,8 @@ const FloatingButtons = () => {
             "0 0 30px hsla(220, 60%, 35%, 0.6), 0 4px 20px hsla(220, 45%, 20%, 0.4)",
         }}
         whileTap={{ scale: 0.9 }}
-        initial={{ x: -80 }}
+        initial={false}
         animate={{ x: 0 }}
-        transition={{ delay: 5, type: "spring" }}
         aria-label="Call us"
       >
         <Phone size={20} className="text-ivory sm:w-[22px] sm:h-[22px]" />
@@ -91,9 +90,8 @@ const FloatingButtons = () => {
         }}
         whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
         whileTap={{ scale: 0.9 }}
-        initial={{ x: -80 }}
+        initial={false}
         animate={{ x: 0 }}
-        transition={{ delay: 5.3, type: "spring" }}
         aria-label="Special offer"
       >
         <Gift size={20} className="text-primary-foreground relative z-10 sm:w-[22px] sm:h-[22px]" />
@@ -133,9 +131,8 @@ const FloatingButtons = () => {
             "0 0 35px hsla(142, 70%, 49%, 0.6), 0 4px 20px hsla(142, 70%, 49%, 0.4)",
         }}
         whileTap={{ scale: 0.9 }}
-        initial={{ x: 80 }}
+        initial={false}
         animate={{ x: 0 }}
-        transition={{ delay: 5, type: "spring" }}
         aria-label="Chat on WhatsApp"
       >
         <MessageCircle size={20} className="text-primary-foreground sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px]" />
@@ -149,9 +146,8 @@ const FloatingButtons = () => {
       {/* Mobile sticky CTA */}
       <motion.div
         className="fixed bottom-0 left-0 right-0 z-30 md:hidden gradient-gold py-2.5 sm:py-3 px-4 flex items-center justify-center safe-bottom"
-        initial={{ y: 100 }}
+        initial={false}
         animate={{ y: 0 }}
-        transition={{ delay: 6 }}
       >
         <a
           href={WHATSAPP_URL}
@@ -193,17 +189,17 @@ const FloatingButtons = () => {
                   <Gift size={24} className="text-primary-foreground sm:w-[28px] sm:h-[28px]" />
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl text-foreground mb-2">
-                  🎉 Special Shaadi Offer!
+                  🎉 Special Wedding Offer!
                 </h3>
                 <p className="font-display text-base sm:text-lg text-gold mb-1">
-                  FREE Demo + ₹2,000 OFF
+                  FREE Demo + ₹499 OFF
                 </p>
                 <p className="font-body text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6">
                   Book your wedding card consultation today and get a complimentary design
-                  mockup plus ₹2,000 off your invitation package.
+                  mockup plus ₹499 off your invitation package.
                 </p>
                 <p className="font-body text-xs text-gold mb-3 sm:mb-4">
-                  ⭐ Trusted by 500+ happy couples across Hyderabad & India
+                  ⭐ Trusted by 500+ happy couples • Rated 4.9/5
                 </p>
                 <a
                   href={WHATSAPP_URL}

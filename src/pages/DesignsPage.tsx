@@ -27,7 +27,9 @@ import projectGeneralArtdeco from "@/assets/project-general-artdeco.jpg";
 
 interface DesignItem {
   title: string;
+  subtitle: string;
   price: string;
+  originalPrice?: string;
   image: string;
   link: string;
   features: string[];
@@ -37,22 +39,22 @@ interface DesignItem {
 
 const allDesigns: DesignItem[] = [
   // Hindu
-  { title: "Royal Rajputana", price: "₹4,999", image: projectHinduRoyal, link: "https://weddy7.netlify.app/", features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"], badge: "Popular", category: "Hindu" },
-  { title: "Floral Mehendi", price: "₹3,499", image: projectHinduFloral, link: "https://weddy9.netlify.app/", features: ["Photo Gallery", "Countdown", "WhatsApp RSVP"], category: "Hindu" },
-  { title: "Classic Elegante", price: "₹5,999", image: projectHinduTemple, link: "https://weddy6.netlify.app/", features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"], category: "Hindu" },
+  { title: "Royal Rajputana Heritage", subtitle: "Regal palace vibes with rich gold accents", price: "₹4,999", originalPrice: "₹7,999", image: projectHinduRoyal, link: "https://weddy7.netlify.app/", features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"], badge: "Popular", category: "Hindu" },
+  { title: "Floral Mehendi Bliss", subtitle: "Lush florals & vibrant mehendi colors", price: "₹2,999", originalPrice: "₹4,999", image: projectHinduFloral, link: "https://weddy9.netlify.app/", features: ["Photo Gallery", "Countdown", "WhatsApp RSVP"], category: "Hindu" },
+  { title: "Classic Elegante Wedding", subtitle: "Timeless elegance with temple motifs", price: "₹4,999", originalPrice: "₹7,499", image: projectHinduTemple, link: "https://weddy6.netlify.app/", features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"], category: "Hindu" },
   // Muslim
-  { title: "Elegant Nikah Invitation", price: "₹4,999", image: projectMuslimNikah, link: "https://asif-ariba-wedding.netlify.app/", features: ["Bilingual Content", "RSVP System", "Venue Info"], badge: "Popular", category: "Muslim" },
-  { title: "Classic Wedding Charm", price: "₹6,999", image: projectMuslimMughal, link: "https://weddy3.netlify.app/", features: ["Full Website", "Guest Management", "Travel Guide"], category: "Muslim" },
-  { title: "Classic Wedding Elegance", price: "₹4,499", image: projectMuslimMinimal1, link: "https://weddy4.netlify.app/", features: ["Minimal Design", "RSVP", "Photo Gallery"], badge: "New", category: "Muslim" },
-  { title: "Wedding Elegance", price: "₹4,499", image: projectMuslimMinimal, link: "https://weddy5.netlify.app/", features: ["Minimal Design", "RSVP", "Photo Gallery"], badge: "New", category: "Muslim" },
+  { title: "Elegant Nikah Invitation", subtitle: "Refined calligraphy with bilingual content", price: "₹3,499", originalPrice: "₹5,499", image: projectMuslimNikah, link: "https://asif-ariba-wedding.netlify.app/", features: ["Bilingual Content", "RSVP System", "Venue Info"], badge: "Popular", category: "Muslim" },
+  { title: "Classic Wedding Charm", subtitle: "Minimal Mughal-inspired charm", price: "₹1,599", originalPrice: "₹2,999", image: projectMuslimMughal, link: "https://weddy3.netlify.app/", features: ["Full Website", "Guest Management", "Travel Guide"], category: "Muslim" },
+  { title: "Classic Wedding Elegance", subtitle: "Sophisticated minimal layout for nikah", price: "₹2,499", originalPrice: "₹3,999", image: projectMuslimMinimal1, link: "https://weddy4.netlify.app/", features: ["Minimal Design", "RSVP", "Photo Gallery"], badge: "New", category: "Muslim" },
+  { title: "Wedding Elegance Premium", subtitle: "Crisp, modern wedding cards design", price: "₹1,999", originalPrice: "₹3,499", image: projectMuslimMinimal, link: "https://weddy5.netlify.app/", features: ["Minimal Design", "RSVP", "Photo Gallery"], badge: "New", category: "Muslim" },
   // Christian
-  { title: "Garden Romance", price: "₹4,499", image: projectChristianGarden, link: "https://weddydev.com/demo/christian-garden", features: ["Photo Gallery", "Venue Map", "Timeline"], category: "Christian" },
-  { title: "Chapel Elegance", price: "₹5,499", image: projectChristianChurch, link: "https://weddydev.com/demo/christian-chapel", features: ["Video Invite", "RSVP", "Registry"], badge: "Popular", category: "Christian" },
-  { title: "Rustic Charm", price: "₹3,999", image: projectChristianRustic, link: "https://weddydev.com/demo/christian-rustic", features: ["Botanical Theme", "Guest Book", "Countdown"], category: "Christian" },
+  { title: "Garden Romance Chapel", subtitle: "Soft botanicals & dreamy garden florals", price: "₹3,499", originalPrice: "₹5,499", image: projectChristianGarden, link: "https://weddydev.com/demo/christian-garden", features: ["Photo Gallery", "Venue Map", "Timeline"], category: "Christian" },
+  { title: "Sacred Chapel Elegance", subtitle: "Pure white luxury for the holy union", price: "₹4,499", originalPrice: "₹6,499", image: projectChristianChurch, link: "https://weddydev.com/demo/christian-chapel", features: ["Video Invite", "RSVP", "Registry"], badge: "Popular", category: "Christian" },
+  { title: "Rustic Vineyard Charm", subtitle: "Earthy botanicals & rustic warmth", price: "₹2,999", originalPrice: "₹4,499", image: projectChristianRustic, link: "https://weddydev.com/demo/christian-rustic", features: ["Botanical Theme", "Guest Book", "Countdown"], category: "Christian" },
   // General
-  { title: "Modern Luxe", price: "₹7,999", image: projectGeneralModern, link: "https://weddydev.com/demo/modern-luxe", features: ["Premium Design", "All Features", "Priority Support"], badge: "Premium", category: "General" },
-  { title: "Ocean Breeze", price: "₹3,999", image: projectGeneralOcean, link: "https://weddydev.com/demo/ocean-breeze", features: ["Destination Wedding", "Travel Info", "RSVP"], category: "General" },
-  { title: "Art Deco Glam", price: "₹6,499", image: projectGeneralArtdeco, link: "https://weddydev.com/demo/art-deco", features: ["Gatsby Theme", "Music", "Photo Gallery"], badge: "New", category: "General" },
+  { title: "Modern Luxe Signature", subtitle: "Premium minimal design with full features", price: "₹6,999", originalPrice: "₹9,999", image: projectGeneralModern, link: "https://weddydev.com/demo/modern-luxe", features: ["Premium Design", "All Features", "Priority Support"], badge: "Premium", category: "General" },
+  { title: "Ocean Breeze Destination", subtitle: "Beach destination wedding vibes", price: "₹3,499", originalPrice: "₹5,499", image: projectGeneralOcean, link: "https://weddydev.com/demo/ocean-breeze", features: ["Destination Wedding", "Travel Info", "RSVP"], category: "General" },
+  { title: "Art Deco Glam", subtitle: "Bold gold & geometric Gatsby glamour", price: "₹5,499", originalPrice: "₹7,999", image: projectGeneralArtdeco, link: "https://weddydev.com/demo/art-deco", features: ["Gatsby Theme", "Music", "Photo Gallery"], badge: "New", category: "General" },
 ];
 
 const categories = ["All", "Hindu", "Muslim", "Christian", "General"];

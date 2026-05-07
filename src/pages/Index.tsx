@@ -1,10 +1,11 @@
-import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import SocialProof from "@/components/SocialProof";
 import ServicesSection from "@/components/ServicesSection";
 import MidCTA from "@/components/MidCTA";
 import OurDesignsSection from "@/components/OurDesignsSection";
+import OurAimSection from "@/components/OurAimSection";
+import WhyBuyWeddingWebsite from "@/components/WhyBuyWeddingWebsite";
 import BuildInvitation from "@/components/BuildInvitation";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import WhyUsSection from "@/components/WhyUsSection";
@@ -25,17 +26,18 @@ const Index = () => {
   return (
     <main className="overflow-x-clip">
       <SEO
-        title="Weddy Dev — Premium Wedding Invitation Cards, Shaadi Websites & Digital Wedding Card Design in Hyderabad"
-        description="Weddy Dev crafts stunning wedding invitation cards, shaadi websites & digital invitations in Hyderabad. Custom designs for Hindu, Muslim & Christian weddings. Trusted by 500+ couples."
+        title="Weddy Dev — Wedding Cards & Wedding Invitation Website Design | Hyderabad"
+        description="Premium wedding cards, wedding invitation cards & wedding invitation websites. Custom wedding cards design for Hindu, Muslim & Christian weddings. Rated 4.9/5 by 500+ couples."
         path="/"
         jsonLd={[organizationSchema, localBusinessSchema, websiteSchema]}
       />
-      <LoadingScreen />
       <Navbar />
       <HeroSection />
       <SocialProof />
+      <OurAimSection />
       <ServicesSection />
       <OurDesignsSection />
+      <WhyBuyWeddingWebsite />
       <MidCTA />
       <BuildInvitation />
       <TestimonialsSection />
@@ -51,3 +53,4 @@ const Index = () => {
 };
 
 export default Index;
+

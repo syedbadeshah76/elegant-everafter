@@ -143,41 +143,16 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
       },
     ],
   },
-  {
-    category: "Modern & Luxury Designs",
-    emoji: "✨",
-    designs: [
-      {
-        title: "Modern Luxe Signature",
-        subtitle: "Premium minimal design with full features",
-        price: "₹6,999",
-        originalPrice: "₹9,999",
-        image: projectGeneralModern,
-        link: "https://weddydev.com/demo/modern-luxe",
-        features: ["Premium Design", "All Features", "Priority Support"],
-        badge: "Premium",
-      },
-      {
-        title: "Ocean Breeze Destination",
-        subtitle: "Beach destination wedding vibes",
-        price: "₹3,499",
-        originalPrice: "₹5,499",
-        image: projectGeneralOcean,
-        link: "https://weddydev.com/demo/ocean-breeze",
-        features: ["Destination Wedding", "Travel Info", "RSVP"],
-      },
-      {
-        title: "Art Deco Glam",
-        subtitle: "Bold gold & geometric Gatsby glamour",
-        price: "₹5,499",
-        originalPrice: "₹7,999",
-        image: projectGeneralArtdeco,
-        link: "https://weddydev.com/demo/art-deco",
-        features: ["Gatsby Theme", "Music", "Photo Gallery"],
-        badge: "New",
-      },
-    ],
-  },
+  // Temporarily hidden — Modern & Luxury Designs
+  // {
+  //   category: "Modern & Luxury Designs",
+  //   emoji: "✨",
+  //   designs: [
+  //     { title: "Modern Luxe Signature", subtitle: "Premium minimal design with full features", price: "₹6,999", originalPrice: "₹9,999", image: projectGeneralModern, link: "https://weddydev.com/demo/modern-luxe", features: ["Premium Design", "All Features", "Priority Support"], badge: "Premium" },
+  //     { title: "Ocean Breeze Destination", subtitle: "Beach destination wedding vibes", price: "₹3,499", originalPrice: "₹5,499", image: projectGeneralOcean, link: "https://weddydev.com/demo/ocean-breeze", features: ["Destination Wedding", "Travel Info", "RSVP"] },
+  //     { title: "Art Deco Glam", subtitle: "Bold gold & geometric Gatsby glamour", price: "₹5,499", originalPrice: "₹7,999", image: projectGeneralArtdeco, link: "https://weddydev.com/demo/art-deco", features: ["Gatsby Theme", "Music", "Photo Gallery"], badge: "New" },
+  //   ],
+  // },
 ];
 
 const DesignCard = ({ design, index }: { design: ProjectDesign; index: number }) => {

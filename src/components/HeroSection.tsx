@@ -117,17 +117,15 @@ const HeroSection = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 gradient-gold text-primary-foreground font-body text-sm tracking-widest uppercase rounded-full shadow-gold"
+              className="btn-luxury inline-flex items-center justify-center gap-2 px-7 py-4 gradient-gold text-primary-foreground font-body text-sm tracking-widest uppercase rounded-full shadow-gold"
             >
               <MessageCircle size={16} /> Get Free Demo
             </motion.a>
             <motion.a
               href={PHONE_URL}
-              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-gold/60 text-gold font-body text-sm tracking-widest uppercase rounded-full hover:bg-gold/10 transition-colors"
+              className="btn-luxury inline-flex items-center justify-center gap-2 px-7 py-4 border border-gold/60 text-gold font-body text-sm tracking-widest uppercase rounded-full hover:bg-gold/10 transition-colors"
             >
               <Phone size={16} /> Call 9160703822
             </motion.a>

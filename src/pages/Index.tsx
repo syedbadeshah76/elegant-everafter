@@ -5,6 +5,7 @@ import ServicesSection from "@/components/ServicesSection";
 import MidCTA from "@/components/MidCTA";
 import OurDesignsSection from "@/components/OurDesignsSection";
 import OurAimSection from "@/components/OurAimSection";
+import EvolutionTimeline from "@/components/EvolutionTimeline";
 import WhyBuyWeddingWebsite from "@/components/WhyBuyWeddingWebsite";
 import BuildInvitation from "@/components/BuildInvitation";
 import TestimonialsSection from "@/components/TestimonialsSection";

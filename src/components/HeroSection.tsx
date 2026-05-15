@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Star, Phone, MessageCircle, ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Zap } from "lucide-react";
-import hero from "@/assets/hero1.png";
+import hero1 from "@/assets/hero1.png";
 import hero2 from "@/assets/hero2.png";
 import hero3 from "@/assets/hero3.png";
 import hero4 from "@/assets/hero4.png";
@@ -13,7 +13,7 @@ const PHONE_URL = "tel:+919160703822";
 
 const slides = [
   {
-    image: hero,
+    image: hero1,
     title: "Royal Rajputana",
     tagline: "Regal heritage meets modern interactivity",
     features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"],

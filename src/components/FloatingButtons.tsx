@@ -11,13 +11,13 @@ const FloatingButtons = () => {
   const [showReengagement, setShowReengagement] = useState(false);
   const [reengagementDismissed, setReengagementDismissed] = useState(false);
 
-  // Show offer popup after 15 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!offerDismissed) setShowOffer(true);
-    }, 15000);
-    return () => clearTimeout(timer);
-  }, [offerDismissed]);
+  // Offer popup disabled — commented out per request
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (!offerDismissed) setShowOffer(true);
+  //   }, 15000);
+  //   return () => clearTimeout(timer);
+  // }, [offerDismissed]);
 
   // Re-engagement popup after 30 seconds of inactivity
   useEffect(() => {

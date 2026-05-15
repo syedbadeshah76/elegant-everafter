@@ -78,41 +78,12 @@ const FloatingButtons = () => {
         <span className="absolute -top-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#25D366] border-2 border-background animate-pulse" />
       </motion.a>
 
-      {/* Gift/Offer button */}
-      <motion.button
-        onClick={openOffer}
-        className="fixed left-3 sm:left-4 bottom-36 sm:bottom-44 md:bottom-28 z-40 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center overflow-hidden group"
-        style={{
-          background:
-            "linear-gradient(135deg, hsl(37, 60%, 70%), hsl(37, 50%, 55%), hsl(37, 45%, 42%))",
-          boxShadow:
-            "0 0 30px hsla(37, 60%, 65%, 0.6), 0 0 60px hsla(37, 50%, 55%, 0.3), 0 4px 15px hsla(37, 45%, 42%, 0.4)",
-        }}
-        whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
-        whileTap={{ scale: 0.9 }}
-        initial={false}
-        animate={{ x: 0 }}
-        aria-label="Special offer"
-      >
-        <Gift size={20} className="text-primary-foreground relative z-10 sm:w-[22px] sm:h-[22px]" />
-        <motion.div
-          className="absolute inset-0 opacity-40"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          style={{
-            background:
-              "conic-gradient(from 0deg, transparent, hsla(37, 60%, 85%, 0.7), transparent, hsla(37, 50%, 80%, 0.5), transparent)",
-          }}
-        />
-        <motion.span
-          className="absolute inset-0 rounded-full border-2 border-gold-light"
-          animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-        />
-        <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full gradient-gold border-2 border-background flex items-center justify-center">
-          <Sparkles size={8} className="text-primary-foreground sm:w-[10px] sm:h-[10px]" />
-        </span>
+      {/* Gift/Offer button — disabled per request */}
+      {/*
+      <motion.button onClick={openOffer} ... >
+        ...gift button removed...
       </motion.button>
+      */}
 
       {/* WhatsApp button - right */}
       <motion.a

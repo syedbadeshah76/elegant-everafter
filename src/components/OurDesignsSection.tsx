@@ -1,194 +1,34 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronRight, ExternalLink, Eye, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight, ExternalLink, Eye, Star, Info } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
-import projectHinduRoyal from "@/assets/project-hindu-royal.jpg";
-import projectHinduTemple2 from "@/assets/arjun&priyanka.png";
-import projectHinduTemple from "@/assets/project-hindu-temple.jpg";
-import projectHinduFloral from "@/assets/project-hindu-floral.jpg";
-import projectHinduPeacock from "@/assets/project-hindu-peacock.jpg";
-import projectMuslimNikah from "@/assets/project-muslim-nikah.jpg";
-import projectMuslimMughal from "@/assets/project-muslim-mughal.jpg";
-import projectMuslimMinimal from "@/assets/project-muslim-minimal.jpg";
-import projectMuslimMinimal1 from "@/assets/project-muslim-minimal1.jpg";
-import projectChristianGarden from "@/assets/christan.png";
-import projectChristianChurch from "@/assets/project-christian-church.jpg";
-import projectChristianRustic from "@/assets/project-christian-rustic.jpg";
-import projectGeneralModern from "@/assets/project-general-modern.jpg";
-import projectGeneralOcean from "@/assets/project-general-ocean.jpg";
-import projectGeneralArtdeco from "@/assets/project-general-artdeco.jpg";
+import { designsByCategory, type Design } from "@/data/designsData";
 
-interface ProjectDesign {
-  title: string;
-  subtitle: string;
-  price: string;
-  originalPrice?: string;
-  image: string;
-  link: string;
-  features: string[];
-  badge?: string;
-}
-
-const designCategories: { category: string; emoji: string; designs: ProjectDesign[] }[] = [
-  {
-    category: "Special Cultural Hindu Weddings",
-    emoji: "🪷",
-    designs: [
-      {
-        title: "Royal Rajputana Heritage",
-        subtitle: "Regal palace vibes with rich gold accents",
-        price: "₹4,999",
-        originalPrice: "₹7,999",
-        image: projectHinduRoyal,
-        link: "https://weddydev4.netlify.app/",
-        features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"],
-        badge: "Popular",
-      },
-       {
-        title: "Classic Elegante Wedding",
-        subtitle: "Timeless elegance with temple motifs",
-        price: "₹1,999",
-        originalPrice: "₹5,499",
-        image: projectHinduTemple2,
-        link: "https://weddydev11.netlify.app/",
-        features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"],
-      },
-      {
-        title: "Floral Mehendi Bliss",
-        subtitle: "Lush florals & vibrant mehendi colors",
-        price: "₹2,999",
-        originalPrice: "₹4,999",
-        image: projectHinduFloral,
-        link: "https://weddy9.netlify.app/",
-        features: ["Photo Gallery", "Countdown", "WhatsApp RSVP"],
-      },
-      {
-        title: "Classic Elegante Wedding",
-        subtitle: "Timeless elegance with temple motifs",
-        price: "₹4,999",
-        originalPrice: "₹7,499",
-        image: projectHinduTemple,
-        link: "https://weddydev9.netlify.app/",
-        features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"],
-      },
-     
-    ],
-  },
-  {
-    category: "Muslim Wedding Designs",
-    emoji: "🌙",
-    designs: [
-      {
-        title: "Elegant Nikah Invitation",
-        subtitle: "Refined calligraphy with bilingual content",
-        price: "₹3,499",
-        originalPrice: "₹5,499",
-        image: projectMuslimNikah,
-        link: "https://weddydev6.netlify.app/",
-        features: ["Bilingual Content", "RSVP System", "Venue Info"],
-        badge: "Popular",
-      },
-      {
-        title: "Classic Wedding Charm",
-        subtitle: "Minimal Mughal-inspired charm",
-        price: "₹1,599",
-        originalPrice: "₹2,999",
-        image: projectMuslimMughal,
-        link: "https://weddydev1.netlify.app/",
-        features: ["Full Website", "Guest Management", "Travel Guide"],
-      },
-      {
-        title: "Classic Wedding Elegance",
-        subtitle: "Sophisticated minimal layout for nikah",
-        price: "₹2,499",
-        originalPrice: "₹3,999",
-        image: projectMuslimMinimal1,
-        link: "https://weddydev3.netlify.app/",
-        features: ["Minimal Design", "RSVP", "Photo Gallery"],
-        badge: "New",
-      },
-      {
-        title: "Wedding Elegance Premium",
-        subtitle: "Crisp, modern wedding cards design",
-        price: "₹1,999",
-        originalPrice: "₹3,499",
-        image: projectMuslimMinimal,
-        link: "https://weddydev7.netlify.app//",
-        features: ["Minimal Design", "RSVP", "Photo Gallery"],
-        badge: "New",
-      },
-    ],
-  },
-  {
-    category: "Christian Wedding Designs",
-    emoji: "⛪",
-    designs: [
-      {
-        title: "Garden Romance Chapel",
-        subtitle: "Soft botanicals & dreamy garden florals",
-        price: "₹3,499",
-        originalPrice: "₹5,499",
-        image: projectChristianGarden,
-        link: "https://daniemarie.netlify.app/",
-        features: ["Photo Gallery", "Venue Map", "Timeline"],
-      },
-      {
-        title: "Sacred Chapel Elegance",
-        subtitle: "Pure white luxury for the holy union",
-        price: "₹4,499",
-        originalPrice: "₹6,499",
-        image: projectChristianChurch,
-        link: "https://weddydev.com/demo/christian-chapel",
-        features: ["Video Invite", "RSVP", "Registry"],
-        badge: "Popular",
-      },
-      {
-        title: "Rustic Vineyard Charm",
-        subtitle: "Earthy botanicals & rustic warmth",
-        price: "₹2,999",
-        originalPrice: "₹4,499",
-        image: projectChristianRustic,
-        link: "https://weddydev.com/demo/christian-rustic",
-        features: ["Botanical Theme", "Guest Book", "Countdown"],
-      },
-    ],
-  },
-  // Temporarily hidden — Modern & Luxury Designs
-  // {
-  //   category: "Modern & Luxury Designs",
-  //   emoji: "✨",
-  //   designs: [
-  //     { title: "Modern Luxe Signature", subtitle: "Premium minimal design with full features", price: "₹6,999", originalPrice: "₹9,999", image: projectGeneralModern, link: "https://weddydev.com/demo/modern-luxe", features: ["Premium Design", "All Features", "Priority Support"], badge: "Premium" },
-  //     { title: "Ocean Breeze Destination", subtitle: "Beach destination wedding vibes", price: "₹3,499", originalPrice: "₹5,499", image: projectGeneralOcean, link: "https://weddydev.com/demo/ocean-breeze", features: ["Destination Wedding", "Travel Info", "RSVP"] },
-  //     { title: "Art Deco Glam", subtitle: "Bold gold & geometric Gatsby glamour", price: "₹5,499", originalPrice: "₹7,999", image: projectGeneralArtdeco, link: "https://weddydev.com/demo/art-deco", features: ["Gatsby Theme", "Music", "Photo Gallery"], badge: "New" },
-  //   ],
-  // },
-];
-
-const DesignCard = ({ design, index }: { design: ProjectDesign; index: number }) => {
+const DesignCard = ({ design, index }: { design: Design; index: number }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <motion.a
-      href={design.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 transition-all duration-500 hover:shadow-gold cursor-pointer group block"
+    <motion.div
+      onClick={() => navigate(`/product/${design.code}`)}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") navigate(`/product/${design.code}`);
+      }}
+      className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 transition-all duration-500 hover:shadow-gold cursor-pointer group flex flex-col"
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+      transition={{ delay: index * 0.08, duration: 0.5, ease: "easeOut" }}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
     >
-      {/* Landscape Image - 16:10 aspect */}
       <div className="relative w-full aspect-[16/10] overflow-hidden bg-muted">
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-muted animate-pulse" />
-        )}
+        {!imageLoaded && <div className="absolute inset-0 bg-muted animate-pulse" />}
         <img
           src={design.image}
-          alt={design.title}
+          alt={`${design.title} wedding card design`}
           loading="lazy"
           width={800}
           height={500}
@@ -197,77 +37,120 @@ const DesignCard = ({ design, index }: { design: ProjectDesign; index: number })
             imageLoaded ? "opacity-100" : "opacity-0"
           }`}
         />
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-end pb-5 gap-2">
-          <motion.span
-            className="flex items-center gap-1.5 bg-background/90 backdrop-blur-sm text-foreground font-body text-[10px] sm:text-xs uppercase tracking-widest px-4 py-2 rounded-full shadow-soft"
-            initial={{ y: 10, opacity: 0 }}
-            whileHover={{ y: 0, opacity: 1 }}
-          >
-            <Eye size={12} /> Preview
-          </motion.span>
-        </div>
-
-        {/* Status badge */}
+        <span className="absolute top-3 left-3 font-body text-[10px] tracking-widest uppercase bg-background/90 text-foreground px-2.5 py-1 rounded-full">
+          {design.code}
+        </span>
         {design.badge && (
-          <div className={`absolute top-3 left-3 font-body text-[10px] sm:text-xs px-2.5 py-1 rounded-full flex items-center gap-1 ${
-            design.badge === "Popular"
-              ? "bg-accent text-accent-foreground"
-              : design.badge === "Premium"
-              ? "gradient-gold text-primary-foreground"
-              : "bg-emerald-500/90 text-white"
-          }`}>
+          <div
+            className={`absolute top-3 right-3 font-body text-[10px] sm:text-xs px-2.5 py-1 rounded-full flex items-center gap-1 ${
+              design.badge === "Popular"
+                ? "bg-accent text-accent-foreground"
+                : design.badge === "Premium"
+                  ? "gradient-gold text-primary-foreground"
+                  : "bg-emerald-500/90 text-white"
+            }`}
+          >
             {design.badge === "Popular" && <Star size={10} />}
             {design.badge}
           </div>
         )}
       </div>
 
-      {/* Info */}
-      <div className="p-4 sm:p-5">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col">
         <h4 className="font-display text-base sm:text-lg text-foreground mb-1 group-hover:text-gold transition-colors">
           {design.title}
         </h4>
-        <p className="font-body text-xs text-muted-foreground mb-3 leading-relaxed">
-          {design.subtitle}
-        </p>
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {design.features.map((feature) => (
-            <span
-              key={feature}
-              className="font-body text-[10px] sm:text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full"
-            >
-              {feature}
-            </span>
-          ))}
-        </div>
+        <p className="font-body text-xs text-muted-foreground mb-3 leading-relaxed">{design.subtitle}</p>
 
-        {/* Highlighted price */}
-        <div className="flex items-end justify-between pt-3 border-t border-border">
+        <div className="flex items-end justify-between pt-2 border-t border-border mb-3">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-xl sm:text-2xl font-bold text-gold">{design.price}</span>
             {design.originalPrice && (
-              <span className="font-body text-xs sm:text-sm text-muted-foreground line-through">{design.originalPrice}</span>
+              <span className="font-body text-xs sm:text-sm text-muted-foreground line-through">
+                {design.originalPrice}
+              </span>
             )}
           </div>
-          {design.originalPrice && (
-            <span className="font-body text-[10px] uppercase tracking-wider bg-emerald-500/15 text-emerald-700 px-2 py-1 rounded-full font-semibold">
-              Limited Offer
-            </span>
-          )}
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <Star size={12} className="text-gold fill-gold" />
+            <span>{design.rating}</span>
+          </div>
+        </div>
+
+        {/* Two buttons */}
+        <div className="grid grid-cols-2 gap-2 mt-auto">
+          <a
+            href={design.demoLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 border border-gold/50 text-gold font-body text-[11px] sm:text-xs tracking-wider uppercase rounded-full hover:bg-gold/10 transition-colors"
+          >
+            <Eye size={12} /> Demo
+          </a>
+          <Link
+            to={`/product/${design.code}`}
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 gradient-gold text-primary-foreground font-body text-[11px] sm:text-xs tracking-wider uppercase rounded-full shadow-gold hover:scale-[1.03] transition-transform"
+          >
+            <Info size={12} /> Details
+          </Link>
         </div>
       </div>
-    </motion.a>
+    </motion.div>
+  );
+};
+
+const ScrollableRow = ({ designs }: { designs: Design[] }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.8;
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
+  return (
+    <div className="relative group/row">
+      {/* Arrows */}
+      <button
+        onClick={() => scroll("left")}
+        aria-label="Scroll left"
+        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-10 w-11 h-11 rounded-full bg-background/95 border border-gold/40 items-center justify-center text-gold shadow-elevated opacity-0 group-hover/row:opacity-100 transition-all hover:bg-gold hover:text-primary-foreground"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        onClick={() => scroll("right")}
+        aria-label="Scroll right"
+        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-10 w-11 h-11 rounded-full bg-background/95 border border-gold/40 items-center justify-center text-gold shadow-elevated opacity-0 group-hover/row:opacity-100 transition-all hover:bg-gold hover:text-primary-foreground"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      <div
+        ref={scrollRef}
+        className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 no-scrollbar -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory scroll-smooth"
+      >
+        {designs.map((design, i) => (
+          <div key={design.code} className="snap-start">
+            <DesignCard design={design} index={i} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
 const OurDesignsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  // Hide General/Modern from homepage as previously requested
+  const categoriesToShow = designsByCategory().filter((c) => c.category !== "General");
 
   return (
     <section id="designs" className="py-14 sm:py-20 md:py-28 bg-cream relative overflow-hidden" ref={ref}>
-      {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
@@ -278,44 +161,27 @@ const OurDesignsSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <motion.p
-            className="font-script text-gold text-lg sm:text-xl md:text-2xl mb-2"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Our Collection
-          </motion.p>
-          <motion.h2
-            className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl text-foreground mb-2 sm:mb-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <p className="font-script text-gold text-lg sm:text-xl md:text-2xl mb-2">Our Collection</p>
+          <h2 className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl text-foreground mb-2 sm:mb-3">
             Explore Our <span className="text-gradient-gold italic">Wedding Designs</span>
-          </motion.h2>
-          <motion.p
-            className="font-body text-xs sm:text-sm md:text-base text-muted-foreground max-w-lg mx-auto"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
+          </h2>
+          <p className="font-body text-xs sm:text-sm md:text-base text-muted-foreground max-w-lg mx-auto">
             Browse our curated collection crafted for every culture and style.
-          </motion.p>
+          </p>
         </motion.div>
 
-        {designCategories.map((cat, catIndex) => (
+        {categoriesToShow.map((cat, catIndex) => (
           <motion.div
             key={cat.category}
             className="mb-10 sm:mb-14 last:mb-0"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ delay: catIndex * 0.1, duration: 0.5 }}
+            transition={{ delay: catIndex * 0.05, duration: 0.5 }}
           >
             <div className="flex items-center justify-between mb-4 sm:mb-6">
               <h3 className="font-display text-base sm:text-lg md:text-2xl text-foreground flex items-center gap-2">
-                <span>{cat.emoji}</span> {cat.category}
+                <span>{cat.emoji}</span> {cat.category} Wedding Designs
               </h3>
               <Link
                 to="/designs"
@@ -324,19 +190,10 @@ const OurDesignsSection = () => {
                 View All <ChevronRight size={14} />
               </Link>
             </div>
-
-            {/* Horizontal scrollable row */}
-            <div className="flex gap-4 sm:gap-5 overflow-x-auto pb-4 no-scrollbar sm:scrollbar-thin sm:scrollbar-thumb-gold/40 sm:scrollbar-track-transparent -mx-4 px-4 sm:-mx-6 sm:px-6 snap-x snap-mandatory scroll-smooth">
-              {cat.designs.map((design, i) => (
-                <div key={design.title} className="snap-start">
-                  <DesignCard design={design} index={i} />
-                </div>
-              ))}
-            </div>
+            <ScrollableRow designs={cat.designs} />
           </motion.div>
         ))}
 
-        {/* CTA */}
         <motion.div
           className="text-center mt-8 sm:mt-12"
           initial={{ opacity: 0, y: 20 }}

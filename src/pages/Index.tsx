@@ -35,16 +35,21 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <SocialProof />
-      <OurAimSection />
-      <EvolutionTimeline />
-      <ServicesSection />
+      {/* 3rd: Our Designs */}
       <OurDesignsSection />
+      {/* 4th */}
+      <ServicesSection />
+      {/* 5th */}
+      <OurAimSection />
+      {/* 6th: The Difference */}
       <WhyBuyWeddingWebsite />
+      {/* 7th: Real Stories */}
+      <WeddingStories />
+      <EvolutionTimeline />
       <MidCTA />
       <BuildInvitation />
       <TestimonialsSection />
       <WhyUsSection />
-      <WeddingStories />
       <AboutSection />
       <ContactSection />
       <FAQSection />

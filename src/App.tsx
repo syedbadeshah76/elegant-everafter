@@ -12,6 +12,7 @@ const ContactPage = lazy(() => import("./pages/ContactPage.tsx"));
 const BlogPage = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage.tsx"));
 const TermsPage = lazy(() => import("./pages/TermsPage.tsx"));
+const ProductPage = lazy(() => import("./pages/ProductPage.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            <Route path="/product/:code" element={<ProductPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

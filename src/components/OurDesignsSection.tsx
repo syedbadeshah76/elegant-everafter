@@ -4,6 +4,7 @@ import { ChevronRight, ExternalLink, Eye, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import projectHinduRoyal from "@/assets/project-hindu-royal.jpg";
+import projectHinduTemple2 from "@/assets/arjun&priyanka.png";
 import projectHinduTemple from "@/assets/project-hindu-temple.jpg";
 import projectHinduFloral from "@/assets/project-hindu-floral.jpg";
 import projectHinduPeacock from "@/assets/project-hindu-peacock.jpg";
@@ -11,7 +12,7 @@ import projectMuslimNikah from "@/assets/project-muslim-nikah.jpg";
 import projectMuslimMughal from "@/assets/project-muslim-mughal.jpg";
 import projectMuslimMinimal from "@/assets/project-muslim-minimal.jpg";
 import projectMuslimMinimal1 from "@/assets/project-muslim-minimal1.jpg";
-import projectChristianGarden from "@/assets/project-christian-garden.jpg";
+import projectChristianGarden from "@/assets/christan.png";
 import projectChristianChurch from "@/assets/project-christian-church.jpg";
 import projectChristianRustic from "@/assets/project-christian-rustic.jpg";
 import projectGeneralModern from "@/assets/project-general-modern.jpg";
@@ -40,9 +41,18 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         price: "₹4,999",
         originalPrice: "₹7,999",
         image: projectHinduRoyal,
-        link: "https://weddy7.netlify.app/",
+        link: "https://weddydev4.netlify.app/",
         features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"],
         badge: "Popular",
+      },
+       {
+        title: "Classic Elegante Wedding",
+        subtitle: "Timeless elegance with temple motifs",
+        price: "₹1,999",
+        originalPrice: "₹5,499",
+        image: projectHinduTemple2,
+        link: "https://weddydev11.netlify.app/",
+        features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"],
       },
       {
         title: "Floral Mehendi Bliss",
@@ -59,9 +69,10 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         price: "₹4,999",
         originalPrice: "₹7,499",
         image: projectHinduTemple,
-        link: "https://weddy6.netlify.app/",
+        link: "https://weddydev9.netlify.app/",
         features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"],
       },
+     
     ],
   },
   {
@@ -74,7 +85,7 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         price: "₹3,499",
         originalPrice: "₹5,499",
         image: projectMuslimNikah,
-        link: "https://asif-ariba-wedding.netlify.app/",
+        link: "https://weddydev6.netlify.app/",
         features: ["Bilingual Content", "RSVP System", "Venue Info"],
         badge: "Popular",
       },
@@ -84,7 +95,7 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         price: "₹1,599",
         originalPrice: "₹2,999",
         image: projectMuslimMughal,
-        link: "https://weddy3.netlify.app/",
+        link: "https://weddydev1.netlify.app/",
         features: ["Full Website", "Guest Management", "Travel Guide"],
       },
       {
@@ -93,7 +104,7 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         price: "₹2,499",
         originalPrice: "₹3,999",
         image: projectMuslimMinimal1,
-        link: "https://weddy4.netlify.app/",
+        link: "https://weddydev3.netlify.app/",
         features: ["Minimal Design", "RSVP", "Photo Gallery"],
         badge: "New",
       },
@@ -103,7 +114,7 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         price: "₹1,999",
         originalPrice: "₹3,499",
         image: projectMuslimMinimal,
-        link: "https://weddy5.netlify.app/",
+        link: "https://weddydev7.netlify.app//",
         features: ["Minimal Design", "RSVP", "Photo Gallery"],
         badge: "New",
       },
@@ -119,7 +130,7 @@ const designCategories: { category: string; emoji: string; designs: ProjectDesig
         price: "₹3,499",
         originalPrice: "₹5,499",
         image: projectChristianGarden,
-        link: "https://weddydev.com/demo/christian-garden",
+        link: "https://daniemarie.netlify.app/",
         features: ["Photo Gallery", "Venue Map", "Timeline"],
       },
       {

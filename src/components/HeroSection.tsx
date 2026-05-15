@@ -1,46 +1,53 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Star, Phone, MessageCircle, ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Zap } from "lucide-react";
-import projectHinduRoyal from "@/assets/project-hindu-royal.jpg";
-import projectMuslimNikah from "@/assets/project-muslim-nikah.jpg";
-import projectChristianGarden from "@/assets/project-christian-garden.jpg";
-import projectGeneralModern from "@/assets/project-general-modern.jpg";
-import projectHinduFloral from "@/assets/project-hindu-floral.jpg";
+import hero from "@/assets/hero1.png";
+import hero2 from "@/assets/hero2.png";
+import hero3 from "@/assets/hero3.png";
+import hero4 from "@/assets/hero4.png";
+import hero5 from "@/assets/hero5.png";
+import hero6 from "@/assets/hero6.png";
 
 const WHATSAPP_URL = "https://wa.me/919160703822?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
 const PHONE_URL = "tel:+919160703822";
 
 const slides = [
   {
-    image: projectHinduRoyal,
+    image: hero,
     title: "Royal Rajputana",
     tagline: "Regal heritage meets modern interactivity",
     features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"],
   },
   {
-    image: projectMuslimNikah,
+    image: hero2,
     title: "Elegant Nikah",
     tagline: "Bilingual elegance with timeless calligraphy",
     features: ["Bilingual Content", "RSVP System", "Guest Manager"],
   },
   {
-    image: projectChristianGarden,
-    title: "Garden Romance",
+    image: hero3,
+    title: " Marriage of Traditions",
+    tagline: "Bilingual elegance with timeless calligraphy",
+    features: ["Bilingual Content", "RSVP System", "Guest Manager", "Countdown Timer", "Photo Gallery"],
+  },
+  {
+    image: hero4,
+    title: "Countdown Section",
+    tagline: "Bilingual elegance with timeless calligraphy",
+    features: ["Bilingual Content", "RSVP System", "Guest Manager", "Countdown Timer", "Photo Gallery"],
+  },
+  {
+    image: hero5,
+    title: "Rustic Charm",
     tagline: "Soft botanicals for an enchanting celebration",
-    features: ["Photo Gallery", "Venue Map", "Timeline"],
+    features: ["Photo Gallery", "Venue Map", "Timeline", "RSVP Tracking", " Countdown Timer", "WhatsApp Share"],
   },
   {
-    image: projectGeneralModern,
-    title: "Modern Luxe",
-    tagline: "Minimal luxury crafted for the modern couple",
-    features: ["Premium Design", "Music Player", "Priority Support"],
-  },
-  {
-    image: projectHinduFloral,
-    title: "Floral Mehendi",
-    tagline: "Lush florals & vibrant mehendi vibes",
-    features: ["Photo Gallery", "Countdown", "RSVP"],
-  },
+    image: hero6,
+    title: "Wedding Bliss",
+    tagline: "Soft botanicals for an enchanting celebration",
+    features: ["Photo Gallery", "Venue Map", "Timeline", "RSVP Tracking", " Countdown Timer", "WhatsApp Share"],
+  }
 ];
 
 const HeroSection = () => {

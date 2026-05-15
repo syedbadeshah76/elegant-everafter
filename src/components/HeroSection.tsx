@@ -169,17 +169,18 @@ const HeroSection = () => {
 
           <div className="relative rounded-3xl overflow-hidden border border-gold/30 shadow-elevated bg-card">
             <div className="relative aspect-[4/5] sm:aspect-[5/6] overflow-hidden">
-              <AnimatePresence mode="wait">
+              <AnimatePresence initial={false}>
                 <motion.img
                   key={slide.image}
                   src={slide.image}
                   alt={`${slide.title} wedding invitation design`}
                   loading="eager"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  initial={{ opacity: 0, scale: 1.05 }}
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover will-change-[opacity,transform]"
+                  initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
                 />
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
@@ -189,10 +190,10 @@ const HeroSection = () => {
                 <motion.div
                   key={slide.title}
                   className="absolute bottom-0 left-0 right-0 p-5 sm:p-6"
-                  initial={{ y: 24, opacity: 0 }}
+                  initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -10, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+                  exit={{ y: -8, opacity: 0 }}
+                  transition={{ duration: 0.35 }}
                 >
                   <p className="font-script text-gold text-xl sm:text-2xl mb-1">Featured Design</p>
                   <h3 className="font-display text-2xl sm:text-3xl text-ivory mb-2">{slide.title}</h3>

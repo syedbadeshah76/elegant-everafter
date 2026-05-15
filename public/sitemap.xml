@@ -60,4 +60,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url><loc>https://weddydev.com/product/WD-01</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-02</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-03</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-04</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-05</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-06</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-07</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-08</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-09</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-10</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-11</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-12</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-13</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-14</loc><priority>0.8</priority></url>
+  <url><loc>https://weddydev.com/product/WD-15</loc><priority>0.8</priority></url>
 </urlset>

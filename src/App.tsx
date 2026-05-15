@@ -12,6 +12,7 @@ const ContactPage = lazy(() => import("./pages/ContactPage.tsx"));
 const BlogPage = lazy(() => import("./pages/BlogPage.tsx"));
 const BlogPostPage = lazy(() => import("./pages/BlogPostPage.tsx"));
 const TermsPage = lazy(() => import("./pages/TermsPage.tsx"));
+const ProductPage = lazy(() => import("./pages/ProductPage.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();

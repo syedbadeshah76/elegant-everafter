@@ -54,6 +54,14 @@ const HeroSection = () => {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  // Preload all hero images so slide changes are instant
+  useEffect(() => {
+    slides.forEach((s) => {
+      const img = new Image();
+      img.src = s.image;
+    });
+  }, []);
+
   useEffect(() => {
     if (paused) return;
     const t = setInterval(() => setActive((i) => (i + 1) % slides.length), 4500);

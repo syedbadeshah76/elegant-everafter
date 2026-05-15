@@ -1,77 +1,33 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Eye, Star, ExternalLink, Filter } from "lucide-react";
+import { Eye, Star, ExternalLink, Filter, Info } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import SEO from "@/components/SEO";
-import {
-  breadcrumbSchema,
-  localBusinessSchema,
-  organizationSchema,
-} from "@/lib/seo-schemas";
+import { breadcrumbSchema, localBusinessSchema, organizationSchema } from "@/lib/seo-schemas";
+import { designs, type Design } from "@/data/designsData";
 
-import projectHinduRoyal from "@/assets/project-hindu-royal.jpg";
-import projectHinduTemple from "@/assets/project-hindu-temple.jpg";
-import projectHinduFloral from "@/assets/project-hindu-floral.jpg";
-import projectMuslimNikah from "@/assets/project-muslim-nikah.jpg";
-import projectMuslimMughal from "@/assets/project-muslim-mughal.jpg";
-import projectMuslimMinimal from "@/assets/project-muslim-minimal.jpg";
-import projectMuslimMinimal1 from "@/assets/project-muslim-minimal1.jpg";
-import projectChristianGarden from "@/assets/project-christian-garden.jpg";
-import projectChristianChurch from "@/assets/project-christian-church.jpg";
-import projectChristianRustic from "@/assets/project-christian-rustic.jpg";
-import projectGeneralModern from "@/assets/project-general-modern.jpg";
-import projectGeneralOcean from "@/assets/project-general-ocean.jpg";
-import projectGeneralArtdeco from "@/assets/project-general-artdeco.jpg";
+const categories = ["All", "Hindu", "Muslim", "Christian", "General"] as const;
 
-interface DesignItem {
-  title: string;
-  subtitle: string;
-  price: string;
-  originalPrice?: string;
-  image: string;
-  link: string;
-  features: string[];
-  badge?: string;
-  category: string;
-}
-
-const allDesigns: DesignItem[] = [
-  // Hindu
-  { title: "Royal Rajputana Heritage", subtitle: "Regal palace vibes with rich gold accents", price: "₹4,999", originalPrice: "₹7,999", image: projectHinduRoyal, link: "https://weddy7.netlify.app/", features: ["WhatsApp RSVP", "Countdown Timer", "Venue Map"], badge: "Popular", category: "Hindu" },
-  { title: "Floral Mehendi Bliss", subtitle: "Lush florals & vibrant mehendi colors", price: "₹2,999", originalPrice: "₹4,999", image: projectHinduFloral, link: "https://weddy9.netlify.app/", features: ["Photo Gallery", "Countdown", "WhatsApp RSVP"], category: "Hindu" },
-  { title: "Classic Elegante Wedding", subtitle: "Timeless elegance with temple motifs", price: "₹4,999", originalPrice: "₹7,499", image: projectHinduTemple, link: "https://weddy6.netlify.app/", features: ["Video Invite", "RSVP Tracking", "Guest Dashboard"], category: "Hindu" },
-  // Muslim
-  { title: "Elegant Nikah Invitation", subtitle: "Refined calligraphy with bilingual content", price: "₹3,499", originalPrice: "₹5,499", image: projectMuslimNikah, link: "https://asif-ariba-wedding.netlify.app/", features: ["Bilingual Content", "RSVP System", "Venue Info"], badge: "Popular", category: "Muslim" },
-  { title: "Classic Wedding Charm", subtitle: "Minimal Mughal-inspired charm", price: "₹1,599", originalPrice: "₹2,999", image: projectMuslimMughal, link: "https://weddy3.netlify.app/", features: ["Full Website", "Guest Management", "Travel Guide"], category: "Muslim" },
-  { title: "Classic Wedding Elegance", subtitle: "Sophisticated minimal layout for nikah", price: "₹2,499", originalPrice: "₹3,999", image: projectMuslimMinimal1, link: "https://weddy4.netlify.app/", features: ["Minimal Design", "RSVP", "Photo Gallery"], badge: "New", category: "Muslim" },
-  { title: "Wedding Elegance Premium", subtitle: "Crisp, modern wedding cards design", price: "₹1,999", originalPrice: "₹3,499", image: projectMuslimMinimal, link: "https://weddy5.netlify.app/", features: ["Minimal Design", "RSVP", "Photo Gallery"], badge: "New", category: "Muslim" },
-  // Christian
-  { title: "Garden Romance Chapel", subtitle: "Soft botanicals & dreamy garden florals", price: "₹3,499", originalPrice: "₹5,499", image: projectChristianGarden, link: "https://weddydev.com/demo/christian-garden", features: ["Photo Gallery", "Venue Map", "Timeline"], category: "Christian" },
-  { title: "Sacred Chapel Elegance", subtitle: "Pure white luxury for the holy union", price: "₹4,499", originalPrice: "₹6,499", image: projectChristianChurch, link: "https://weddydev.com/demo/christian-chapel", features: ["Video Invite", "RSVP", "Registry"], badge: "Popular", category: "Christian" },
-  { title: "Rustic Vineyard Charm", subtitle: "Earthy botanicals & rustic warmth", price: "₹2,999", originalPrice: "₹4,499", image: projectChristianRustic, link: "https://weddydev.com/demo/christian-rustic", features: ["Botanical Theme", "Guest Book", "Countdown"], category: "Christian" },
-  // General
-  { title: "Modern Luxe Signature", subtitle: "Premium minimal design with full features", price: "₹6,999", originalPrice: "₹9,999", image: projectGeneralModern, link: "https://weddydev.com/demo/modern-luxe", features: ["Premium Design", "All Features", "Priority Support"], badge: "Premium", category: "General" },
-  { title: "Ocean Breeze Destination", subtitle: "Beach destination wedding vibes", price: "₹3,499", originalPrice: "₹5,499", image: projectGeneralOcean, link: "https://weddydev.com/demo/ocean-breeze", features: ["Destination Wedding", "Travel Info", "RSVP"], category: "General" },
-  { title: "Art Deco Glam", subtitle: "Bold gold & geometric Gatsby glamour", price: "₹5,499", originalPrice: "₹7,999", image: projectGeneralArtdeco, link: "https://weddydev.com/demo/art-deco", features: ["Gatsby Theme", "Music", "Photo Gallery"], badge: "New", category: "General" },
-];
-
-const categories = ["All", "Hindu", "Muslim", "Christian", "General"];
-
-const DesignCard = ({ design, index }: { design: DesignItem; index: number }) => {
+const DesignCard = ({ design, index }: { design: Design; index: number }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <motion.a
-      href={design.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 transition-all duration-500 hover:shadow-gold cursor-pointer group block"
+    <motion.div
+      onClick={() => navigate(`/product/${design.code}`)}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") navigate(`/product/${design.code}`);
+      }}
+      className="rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 transition-all duration-500 hover:shadow-gold cursor-pointer group flex flex-col"
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-30px" }}
-      transition={{ delay: index * 0.05, duration: 0.5, ease: "easeOut" }}
+      transition={{ delay: Math.min(index, 6) * 0.05, duration: 0.5, ease: "easeOut" }}
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
     >
       <div className="relative w-full aspect-[16/10] overflow-hidden bg-muted">
@@ -83,60 +39,76 @@ const DesignCard = ({ design, index }: { design: DesignItem; index: number }) =>
           width={800}
           height={500}
           onLoad={() => setImageLoaded(true)}
-          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-end pb-5 gap-2">
-          <span className="flex items-center gap-1.5 bg-background/90 backdrop-blur-sm text-foreground font-body text-xs uppercase tracking-widest px-4 py-2 rounded-full shadow-soft">
-            <Eye size={12} /> Preview
-          </span>
-        </div>
+        <span className="absolute top-3 left-3 font-body text-[10px] tracking-widest uppercase bg-background/90 text-foreground px-2.5 py-1 rounded-full">
+          {design.code}
+        </span>
         {design.badge && (
-          <div className={`absolute top-3 left-3 font-body text-[10px] sm:text-xs px-2.5 py-1 rounded-full flex items-center gap-1 ${
-            design.badge === "Popular" ? "bg-accent text-accent-foreground"
-            : design.badge === "Premium" ? "gradient-gold text-primary-foreground"
-            : "bg-emerald-500/90 text-white"
-          }`}>
+          <div
+            className={`absolute top-3 right-3 font-body text-[10px] sm:text-xs px-2.5 py-1 rounded-full flex items-center gap-1 ${
+              design.badge === "Popular"
+                ? "bg-accent text-accent-foreground"
+                : design.badge === "Premium"
+                  ? "gradient-gold text-primary-foreground"
+                  : "bg-emerald-500/90 text-white"
+            }`}
+          >
             {design.badge === "Popular" && <Star size={10} />}
             {design.badge}
           </div>
         )}
-        <span className="absolute top-3 right-3 text-[10px] font-body text-ivory bg-navy/70 backdrop-blur-sm px-2 py-0.5 rounded-full">
-          {design.category}
-        </span>
       </div>
-      <div className="p-4 sm:p-5">
+
+      <div className="p-4 sm:p-5 flex-1 flex flex-col">
         <h3 className="font-display text-base sm:text-lg text-foreground mb-1 group-hover:text-gold transition-colors">
           {design.title}
         </h3>
         <p className="font-body text-xs text-muted-foreground mb-3 leading-relaxed">{design.subtitle}</p>
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {design.features.map((feature) => (
-            <span key={feature} className="font-body text-[10px] sm:text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full">
-              {feature}
-            </span>
-          ))}
-        </div>
-        <div className="flex items-end justify-between pt-3 border-t border-border">
+
+        <div className="flex items-end justify-between pt-2 border-t border-border mb-3">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-xl sm:text-2xl font-bold text-gold">{design.price}</span>
             {design.originalPrice && (
-              <span className="font-body text-xs sm:text-sm text-muted-foreground line-through">{design.originalPrice}</span>
+              <span className="font-body text-xs sm:text-sm text-muted-foreground line-through">
+                {design.originalPrice}
+              </span>
             )}
           </div>
-          {design.originalPrice && (
-            <span className="font-body text-[10px] uppercase tracking-wider bg-emerald-500/15 text-emerald-700 px-2 py-1 rounded-full font-semibold">
-              Limited Offer
-            </span>
-          )}
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <Star size={12} className="text-gold fill-gold" />
+            <span>{design.rating}</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 mt-auto">
+          <a
+            href={design.demoLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 border border-gold/50 text-gold font-body text-[11px] sm:text-xs tracking-wider uppercase rounded-full hover:bg-gold/10 transition-colors"
+          >
+            <Eye size={12} /> Demo
+          </a>
+          <Link
+            to={`/product/${design.code}`}
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 gradient-gold text-primary-foreground font-body text-[11px] sm:text-xs tracking-wider uppercase rounded-full shadow-gold hover:scale-[1.03] transition-transform"
+          >
+            <Info size={12} /> Details
+          </Link>
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 };
 
 const DesignsPage = () => {
-  const [active, setActive] = useState("All");
-  const filtered = active === "All" ? allDesigns : allDesigns.filter((d) => d.category === active);
+  const [active, setActive] = useState<(typeof categories)[number]>("All");
+  const filtered = active === "All" ? designs : designs.filter((d) => d.category === active);
 
   return (
     <main className="overflow-x-clip">
@@ -157,7 +129,6 @@ const DesignsPage = () => {
       <div className="pt-24">
         <section className="py-16 md:py-24 bg-cream min-h-screen">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            {/* Header */}
             <motion.div
               className="text-center mb-12"
               initial={{ opacity: 0, y: 30 }}
@@ -169,11 +140,11 @@ const DesignsPage = () => {
                 All Wedding <span className="text-gradient-gold italic">Invitation Designs</span>
               </h1>
               <p className="font-body text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
-                Browse our complete collection of wedding cards and shaadi invitation designs for every culture and style.
+                Browse our complete collection of wedding cards and shaadi invitation designs for every culture and
+                style.
               </p>
             </motion.div>
 
-            {/* Filter tabs */}
             <motion.div
               className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10"
               initial={{ opacity: 0, y: 20 }}
@@ -191,19 +162,17 @@ const DesignsPage = () => {
                       : "bg-background text-muted-foreground hover:text-gold border border-border"
                   }`}
                 >
-                  {cat} {cat !== "All" && `(${allDesigns.filter(d => d.category === cat).length})`}
+                  {cat} {cat !== "All" && `(${designs.filter((d) => d.category === cat).length})`}
                 </button>
               ))}
             </motion.div>
 
-            {/* Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {filtered.map((design, i) => (
-                <DesignCard key={design.title} design={design} index={i} />
+                <DesignCard key={design.code} design={design} index={i} />
               ))}
             </div>
 
-            {/* Bottom CTA */}
             <motion.div
               className="text-center mt-16"
               initial={{ opacity: 0, y: 20 }}

@@ -2,12 +2,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
-import hinduImg from "@/assets/portfolio-hindu.jpg";
-import muslimImg from "@/assets/portfolio-muslim.jpg";
-import modernImg from "@/assets/portfolio-modern.jpg";
-import floralImg from "@/assets/portfolio-floral.jpg";
-import royalImg from "@/assets/portfolio-royal.jpg";
-import christianImg from "@/assets/portfolio-christian.jpg";
+import hinduImg from "@/assets/portfolio-hindu.webp";
+import muslimImg from "@/assets/portfolio-muslim.webp";
+import modernImg from "@/assets/portfolio-modern.webp";
+import floralImg from "@/assets/portfolio-floral.webp";
+import royalImg from "@/assets/portfolio-royal.webp";
+import christianImg from "@/assets/portfolio-christian.webp";
 
 const categories = ["All", "Hindu", "Muslim", "Christian", "Modern"];
 
@@ -75,7 +75,7 @@ const PortfolioSection = () => {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               whileHover={{ y: -6 }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={item.image}
                 alt={`${item.title} wedding invitation design`}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

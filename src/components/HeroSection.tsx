@@ -1,12 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Star, Phone, MessageCircle, ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Zap } from "lucide-react";
-import hero1 from "@/assets/hero1.png";
-import hero2 from "@/assets/hero2.png";
-import hero3 from "@/assets/hero3.png";
-import hero4 from "@/assets/hero4.png";
-import hero5 from "@/assets/hero5.png";
-import hero6 from "@/assets/hero6.png";
+import hero1 from "@/assets/hero1.webp";
+import hero2 from "@/assets/hero2.webp";
+import hero3 from "@/assets/hero3.webp";
+import hero4 from "@/assets/hero4.webp";
+import hero5 from "@/assets/hero5.webp";
+import hero6 from "@/assets/hero6.webp";
 
 const WHATSAPP_URL = "https://wa.me/919160703822?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
 const PHONE_URL = "tel:+919160703822";
@@ -54,12 +54,21 @@ const HeroSection = () => {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // Preload all hero images so slide changes are instant
+  // Preload non-LCP hero images after the main one loads (idle) to avoid blocking LCP
   useEffect(() => {
-    slides.forEach((s) => {
-      const img = new Image();
-      img.src = s.image;
-    });
+    const preload = () => {
+      slides.slice(1).forEach((s) => {
+        const img = new Image();
+        img.src = s.image;
+      });
+    };
+    const ric = (window as any).requestIdleCallback;
+    const id = ric ? ric(preload, { timeout: 2000 }) : window.setTimeout(preload, 1500);
+    return () => {
+      const cic = (window as any).cancelIdleCallback;
+      if (ric && cic) cic(id);
+      else window.clearTimeout(id as number);
+    };
   }, []);
 
   useEffect(() => {
@@ -176,6 +185,10 @@ const HeroSection = () => {
                   alt={`${slide.title} wedding invitation design`}
                   loading="eager"
                   decoding="async"
+                  // @ts-ignore - valid HTML attribute
+                  fetchpriority={active === 0 ? "high" : "auto"}
+                  width={800}
+                  height={1000}
                   className="absolute inset-0 w-full h-full object-cover will-change-[opacity,transform]"
                   initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 1, scale: 1 }}

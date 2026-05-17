@@ -32,7 +32,7 @@ const DesignCard = ({ design, index }: { design: Design; index: number }) => {
     >
       <div className="relative w-full aspect-[16/10] overflow-hidden bg-muted">
         {!imageLoaded && <div className="absolute inset-0 bg-muted animate-pulse" />}
-        <img
+        <img loading="lazy" decoding="async"
           src={design.image}
           alt={`${design.title} - wedding card design`}
           loading="lazy"

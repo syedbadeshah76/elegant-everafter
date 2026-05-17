@@ -2,12 +2,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
-import hinduImg from "@/assets/portfolio-hindu.jpg";
-import muslimImg from "@/assets/portfolio-muslim.jpg";
-import modernImg from "@/assets/portfolio-modern.jpg";
-import floralImg from "@/assets/portfolio-floral.jpg";
-import royalImg from "@/assets/portfolio-royal.jpg";
-import christianImg from "@/assets/portfolio-christian.jpg";
+import hinduImg from "@/assets/portfolio-hindu.webp";
+import muslimImg from "@/assets/portfolio-muslim.webp";
+import modernImg from "@/assets/portfolio-modern.webp";
+import floralImg from "@/assets/portfolio-floral.webp";
+import royalImg from "@/assets/portfolio-royal.webp";
+import christianImg from "@/assets/portfolio-christian.webp";
 
 const categories = ["All", "Hindu", "Muslim", "Christian", "Modern"];
 

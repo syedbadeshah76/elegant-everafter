@@ -1,12 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Star, Phone, MessageCircle, ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Zap } from "lucide-react";
-import hero1 from "@/assets/hero1.png";
-import hero2 from "@/assets/hero2.png";
-import hero3 from "@/assets/hero3.png";
-import hero4 from "@/assets/hero4.png";
-import hero5 from "@/assets/hero5.png";
-import hero6 from "@/assets/hero6.png";
+import hero1 from "@/assets/hero1.webp";
+import hero2 from "@/assets/hero2.webp";
+import hero3 from "@/assets/hero3.webp";
+import hero4 from "@/assets/hero4.webp";
+import hero5 from "@/assets/hero5.webp";
+import hero6 from "@/assets/hero6.webp";
 
 const WHATSAPP_URL = "https://wa.me/919160703822?text=Hi%2C%20I%27m%20planning%20a%20wedding%20and%20loved%20your%20designs.%20Can%20you%20share%20pricing%20and%20demo%3F";
 const PHONE_URL = "tel:+919160703822";

@@ -54,12 +54,21 @@ const HeroSection = () => {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // Preload all hero images so slide changes are instant
+  // Preload non-LCP hero images after the main one loads (idle) to avoid blocking LCP
   useEffect(() => {
-    slides.forEach((s) => {
-      const img = new Image();
-      img.src = s.image;
-    });
+    const preload = () => {
+      slides.slice(1).forEach((s) => {
+        const img = new Image();
+        img.src = s.image;
+      });
+    };
+    const ric = (window as any).requestIdleCallback;
+    const id = ric ? ric(preload, { timeout: 2000 }) : window.setTimeout(preload, 1500);
+    return () => {
+      const cic = (window as any).cancelIdleCallback;
+      if (ric && cic) cic(id);
+      else window.clearTimeout(id as number);
+    };
   }, []);
 
   useEffect(() => {
@@ -176,6 +185,10 @@ const HeroSection = () => {
                   alt={`${slide.title} wedding invitation design`}
                   loading="eager"
                   decoding="async"
+                  // @ts-ignore - valid HTML attribute
+                  fetchpriority={active === 0 ? "high" : "auto"}
+                  width={800}
+                  height={1000}
                   className="absolute inset-0 w-full h-full object-cover will-change-[opacity,transform]"
                   initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 1, scale: 1 }}

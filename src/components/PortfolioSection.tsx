@@ -75,7 +75,7 @@ const PortfolioSection = () => {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               whileHover={{ y: -6 }}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={item.image}
                 alt={`${item.title} wedding invitation design`}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

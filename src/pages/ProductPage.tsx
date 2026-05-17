@@ -92,7 +92,7 @@ const ProductPage = () => {
               className="relative"
             >
               <div className="relative rounded-3xl overflow-hidden border border-gold/30 shadow-elevated bg-card aspect-[4/5] sm:aspect-[5/6]">
-                <img
+                <img loading="lazy" decoding="async"
                   src={design.image}
                   alt={`${design.title} wedding invitation website preview`}
                   className="w-full h-full object-cover"
@@ -329,7 +329,7 @@ const ProductPage = () => {
                   className="rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 hover:shadow-gold transition-all duration-500 block group"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={d.image}
                       alt={d.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

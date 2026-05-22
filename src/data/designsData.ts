@@ -13,7 +13,9 @@ import projectChristianRustic from "@/assets/project-christian-rustic.webp";
 import projectGeneralModern from "@/assets/project-general-modern.webp";
 import projectGeneralOcean from "@/assets/project-general-ocean.webp";
 import projectGeneralArtdeco from "@/assets/project-general-artdeco.webp";
-
+import fatima from "@/assets/fatima.png";
+import preethi from "@/assets/preethi.png";
+import abhishek from "@/assets/abhishek.png";
 export interface DesignSection {
   title: string;
   description: string;
@@ -86,6 +88,23 @@ export const designs: Design[] = [
   },
   {
     code: "WD-03",
+    title: "  Bloom Mehendi",
+    subtitle: "Lush florals & vibrant mehendi colors",
+    description: "Bursting with marigold, henna green and bougainvillea pinks — a cheerful, celebratory wedding website built for vibrant Mehendi & Haldi forward weddings.",
+    price: "₹3,999",
+    originalPrice: "₹5,999",
+    image: preethi,
+    demoLink: "https://weddydev16.netlify.app/",
+    features: ["Photo Gallery", "Countdown", "WhatsApp RSVP", "Music Player"],
+    sections: standardSections,
+    rating: 4.9,
+    reviews: 76,
+    category: "Hindu",
+    categoryEmoji: "🪷",
+  },
+  
+  {
+    code: "WD-03",
     title: "Mehendi Bloom",
     subtitle: "Lush florals & vibrant mehendi colors",
     description: "Bursting with marigold, henna green and bougainvillea pinks — a cheerful, celebratory wedding website built for vibrant Mehendi & Haldi forward weddings.",
@@ -123,8 +142,8 @@ export const designs: Design[] = [
     description: "A bold, peacock-themed wedding website with shimmering teal, emerald and gold accents — for couples who want to make a statement.",
     price: "₹3,499",
     originalPrice: "₹5,999",
-    image: projectHinduPeacock,
-    demoLink: "https://weddy9.netlify.app/",
+    image: abhishek,
+    demoLink: "https://weddydevv15.netlify.app/",
     features: ["Photo Gallery", "Music Player", "WhatsApp RSVP", "Live Stream"],
     sections: standardSections,
     rating: 4.8,
@@ -194,6 +213,23 @@ export const designs: Design[] = [
     originalPrice: "₹3,499",
     image: projectMuslimMinimal,
     demoLink: "https://weddydev7.netlify.app/",
+    features: ["Minimal Design", "RSVP", "Photo Gallery", "Guest Dashboard"],
+    sections: standardSections,
+    rating: 4.8,
+    reviews: 39,
+    badge: "New",
+    category: "Muslim",
+    categoryEmoji: "🌙",
+  },
+  {
+    code: "WD-09",
+    title: "Pink Premium",
+    subtitle: "Crisp, modern wedding cards design",
+    description: "A premium pearl & gold themed nikah website — luxurious yet minimal, with hand-finished motifs and a guest dashboard.",
+    price: "₹1,999",
+    originalPrice: "₹3,499",
+    image: fatima,
+    demoLink: "https://weddydev14.netlify.app/",
     features: ["Minimal Design", "RSVP", "Photo Gallery", "Guest Dashboard"],
     sections: standardSections,
     rating: 4.8,

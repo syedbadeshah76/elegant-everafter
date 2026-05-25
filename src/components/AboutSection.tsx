@@ -126,42 +126,6 @@ const AboutSection = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-24 md:py-32 gradient-navy relative overflow-hidden" ref={processRef}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={processInView ? { opacity: 1, y: 0 } : {}}
-          >
-            <p className="font-script text-gold-light text-2xl mb-3">How It Works</p>
-            <h2 className="font-display text-3xl md:text-3xl text-ivory mb-4">
-          How Our Wedding Invitation Website<span className="text-gold-light italic">& Digital Card Process Works</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {process.map((item, i) => (
-              <motion.div
-                key={item.step}
-                className="relative text-center p-8 rounded-2xl border border-ivory/10 bg-ivory/5 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 30 }}
-                animate={processInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + i * 0.15 }}
-              >
-                <div className="w-16 h-16 rounded-full gradient-gold flex items-center justify-center mx-auto mb-5">
-                  <span className="font-display text-xl text-primary-foreground">{item.step}</span>
-                </div>
-                <h3 className="font-display text-xl text-ivory mb-3">{item.title}</h3>
-                <p className="font-body text-sm text-ivory/60 leading-relaxed">{item.desc}</p>
-                {i < process.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-[1px] bg-gold/30" />
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Team Values Section */}
       <section className="py-24 md:py-32 bg-cream relative overflow-hidden" ref={valuesRef}>

@@ -329,11 +329,12 @@ const ProductPage = () => {
                   className="rounded-2xl bg-card border border-border overflow-hidden hover:border-gold/40 hover:shadow-gold transition-all duration-500 block group"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <img loading="lazy" decoding="async"
+                    <img
                       src={d.image}
                       alt={d.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <span className="absolute top-3 left-3 font-body text-[10px] tracking-widest uppercase bg-background/90 text-foreground px-2 py-1 rounded-full">
                       {d.code}

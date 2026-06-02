@@ -70,7 +70,7 @@ const ContactSection = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+            
             {[
               { name: "name", placeholder: "Your Name", type: "text" },
               { name: "email", placeholder: "Email Address", type: "email" },

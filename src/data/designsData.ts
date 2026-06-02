@@ -13,6 +13,8 @@ import projectChristianRustic from "@/assets/project-christian-rustic.webp";
 import projectGeneralModern from "@/assets/project-general-modern.webp";
 import projectGeneralOcean from "@/assets/project-general-ocean.webp";
 import projectGeneralArtdeco from "@/assets/project-general-artdeco.webp";
+import projectDivineVivaha from "@/assets/hindu2.png";
+import projectNoorENikah from "@/assets/muslim1.png";
 import fatima from "@/assets/fatima.png";
 import preethi from "@/assets/preethi.png";
 import abhishek from "@/assets/abhishek.png";
@@ -87,6 +89,29 @@ export const designs: Design[] = [
     categoryEmoji: "🪷",
   },
   {
+    code: "WD-02",
+    title: "Divine Vivaha",
+    subtitle: "Sacred traditions blended with modern elegance",
+    description: "A luxurious Hindu wedding invitation website inspired by temple architecture, lotus motifs, golden mandalas and divine Vedic aesthetics. Perfect for couples seeking a timeless and spiritual wedding experience.",
+    price: "₹4,499",
+    originalPrice: "₹6,999",
+    image: projectDivineVivaha,
+    demoLink: "https://weddydev18.netlify.app/",
+    features: [
+      "WhatsApp RSVP",
+      "Wedding Timeline",
+      "Venue Map",
+      "Photo Gallery",
+      "Family Introduction"
+    ],
+    sections: standardSections,
+    rating: 5.0,
+    reviews: 116,
+    badge: "Best Seller",
+    category: "Hindu",
+    categoryEmoji: "🪷",
+  },
+  {
     code: "WD-03",
     title: "  Bloom Mehendi",
     subtitle: "Lush florals & vibrant mehendi colors",
@@ -102,7 +127,6 @@ export const designs: Design[] = [
     category: "Hindu",
     categoryEmoji: "🪷",
   },
-  
   {
     code: "WD-03",
     title: "Mehendi Bloom",
@@ -170,6 +194,28 @@ export const designs: Design[] = [
     badge: "Popular",
     category: "Muslim",
     categoryEmoji: "🌙",
+  },
+  {
+    code: "WD-08",
+    title: "Noor-e-Nikah",
+    subtitle: "Modern Islamic elegance with heavenly animations",
+    description: "A breathtaking Muslim wedding website inspired by Islamic architecture, glowing lanterns, moonlit effects, Arabic typography, and immersive storytelling for Nikah and Walima celebrations.",
+    price: "₹4,499",
+    originalPrice: "₹7,499",
+    image: projectNoorENikah,
+    demoLink: "https://weddydev17.netlify.app/",
+    features: [
+      "Arabic Calligraphy",
+      "Animated Lantern Effects",
+      "Guest RSVP",
+      "Google Maps Integration"
+    ],
+    sections: standardSections,
+    rating: 5.0,
+    reviews: 112,
+    badge: "Best Seller",
+    category: "Muslim",
+    categoryEmoji: "🌙"
   },
   {
     code: "WD-07",

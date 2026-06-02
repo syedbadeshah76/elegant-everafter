@@ -15,6 +15,8 @@ import projectGeneralOcean from "@/assets/project-general-ocean.webp";
 import projectGeneralArtdeco from "@/assets/project-general-artdeco.webp";
 import projectDivineVivaha from "@/assets/hindu2.png";
 import projectNoorENikah from "@/assets/muslim1.png";
+import projectNoorENikahh from "@/assets/muslim2.png";
+import projectNoorENikahhh from "@/assets/muslim3.png";
 import fatima from "@/assets/fatima.png";
 import preethi from "@/assets/preethi.png";
 import abhishek from "@/assets/abhishek.png";
@@ -196,6 +198,29 @@ export const designs: Design[] = [
     categoryEmoji: "🌙",
   },
   {
+    code: "WD-12",
+    title: "Noor-e-Nikahhh",
+    subtitle: "Modern Islamic elegance with heavenly animations",
+    description: "A breathtaking Muslim wedding website inspired by Islamic architecture, glowing lanterns, moonlit effects, Arabic typography, and immersive storytelling for Nikah and Walima celebrations.",
+    price: "₹4,499",
+    originalPrice: "₹7,499",
+    image: projectNoorENikahh,
+    demoLink: "https://weddydev19.netlify.app/",
+    features: [
+      "Arabic Calligraphy",
+      "Animated Lantern Effects",
+      "Guest RSVP",
+      "Google Maps Integration"
+    ],
+    sections: standardSections,
+    rating: 5.0,
+    reviews: 112,
+    badge: "Best Seller",
+    category: "Muslim",
+    categoryEmoji: "🌙"
+  },
+  
+  {
     code: "WD-08",
     title: "Noor-e-Nikah",
     subtitle: "Modern Islamic elegance with heavenly animations",
@@ -226,6 +251,22 @@ export const designs: Design[] = [
     originalPrice: "₹2,999",
     image: projectMuslimMughal,
     demoLink: "https://weddydev1.netlify.app/",
+    features: ["Full Website", "Guest Management", "Travel Guide"],
+    sections: standardSections,
+    rating: 4.8,
+    reviews: 53,
+    category: "Muslim",
+    categoryEmoji: "🌙",
+  },
+  {
+    code: "WD-07",
+    title: "Mughal Garden",
+    subtitle: "Minimal Mughal-inspired arches & motifs",
+    description: "Inspired by Mughal courtyards — pointed arches, jali patterns and a calming green & gold palette for a refined nikah experience.",
+    price: "₹3,599",
+    originalPrice: "₹2,999",
+    image:projectNoorENikahhh ,
+    demoLink: "https://weddydev20.netlify.app/",
     features: ["Full Website", "Guest Management", "Travel Guide"],
     sections: standardSections,
     rating: 4.8,

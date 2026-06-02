@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Send, Phone, Mail, MapPin, CheckCircle, Loader2 } from "lucide-react";
 
-const WEB3FORMS_KEY = "0815ebac-1709-486e-b0da-39dea452f05c";
+const WHATSAPP_NUMBER = "919160703822";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -15,31 +15,28 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          name: formState.name,
-          email: formState.email,
-          phone: formState.phone,
-          wedding_date: formState.date,
-          message: formState.message,
-          subject: `New Wedding Inquiry from ${formState.name}`,
-        }),
-      });
+    const safe = {
+      name: formState.name.trim().slice(0, 100),
+      email: formState.email.trim().slice(0, 255),
+      phone: formState.phone.trim().slice(0, 20),
+      date: formState.date.trim().slice(0, 30),
+      message: formState.message.trim().slice(0, 1000),
+    };
 
-      if (response.ok) {
-        setIsSuccess(true);
-        setFormState({ name: "", email: "", phone: "", message: "", date: "" });
-        setTimeout(() => setIsSuccess(false), 5000);
-      }
-    } catch {
-      const msg = encodeURIComponent(
-        `Hi! I'm ${formState.name}. Wedding date: ${formState.date}. ${formState.message}`
-      );
-      window.open(`https://wa.me/919160703822?text=${msg}`, "_blank");
+    const text = encodeURIComponent(
+      `Hi Weddy Dev! I'd like to enquire about a wedding invitation.\n\n` +
+      `• Name: ${safe.name}\n` +
+      `• Email: ${safe.email}\n` +
+      `• Phone: ${safe.phone}\n` +
+      `• Wedding Date: ${safe.date}\n\n` +
+      `${safe.message}`
+    );
+
+    try {
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
+      setIsSuccess(true);
+      setFormState({ name: "", email: "", phone: "", message: "", date: "" });
+      setTimeout(() => setIsSuccess(false), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -73,7 +70,7 @@ const ContactSection = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+            
             {[
               { name: "name", placeholder: "Your Name", type: "text" },
               { name: "email", placeholder: "Email Address", type: "email" },

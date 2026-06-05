@@ -148,6 +148,7 @@ const BlogPage = () => {
   const activeCat = searchParams.get("category") || "All";
   const query = searchParams.get("q") || "";
   const currentPage = Math.max(1, parseInt(searchParams.get("page") || "1", 10));
+  const sort = (searchParams.get("sort") as "latest" | "oldest" | "popular" | "featured") || "latest";
   const [searchInput, setSearchInput] = useState(query);
 
   const categories = useMemo(
@@ -173,10 +174,25 @@ const BlogPage = () => {
 
   const featured = blogPosts[0];
   const popular = blogPosts.slice(1, 4);
-  const latestSource = filtered.length ? filtered : blogPosts;
-  const totalPages = Math.max(1, Math.ceil(latestSource.length / PAGE_SIZE));
+  const sorted = useMemo(() => {
+    const base = filtered.length ? [...filtered] : [...blogPosts];
+    const time = (d: string) => new Date(d).getTime() || 0;
+    switch (sort) {
+      case "oldest":
+        return base.sort((a, b) => time(a.date) - time(b.date));
+      case "popular":
+        // popular = same as initial featured/popular ordering in blogPosts
+        return base;
+      case "featured":
+        return base.sort((a, b) => (a.slug === featured.slug ? -1 : b.slug === featured.slug ? 1 : 0));
+      case "latest":
+      default:
+        return base.sort((a, b) => time(b.date) - time(a.date));
+    }
+  }, [filtered, sort, featured.slug]);
+  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
   const page = Math.min(currentPage, totalPages);
-  const latest = latestSource.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const latest = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   const updateParam = (key: string, value: string | null) => {
     const p = new URLSearchParams(searchParams);

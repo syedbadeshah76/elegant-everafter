@@ -17,6 +17,9 @@ import {
   ChevronDown,
   Phone,
   MessageCircle,
+  Mail,
+  ArrowUpDown,
+  Tag,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -145,6 +148,7 @@ const BlogPage = () => {
   const activeCat = searchParams.get("category") || "All";
   const query = searchParams.get("q") || "";
   const currentPage = Math.max(1, parseInt(searchParams.get("page") || "1", 10));
+  const sort = (searchParams.get("sort") as "latest" | "oldest" | "popular" | "featured") || "latest";
   const [searchInput, setSearchInput] = useState(query);
 
   const categories = useMemo(
@@ -170,10 +174,25 @@ const BlogPage = () => {
 
   const featured = blogPosts[0];
   const popular = blogPosts.slice(1, 4);
-  const latestSource = filtered.length ? filtered : blogPosts;
-  const totalPages = Math.max(1, Math.ceil(latestSource.length / PAGE_SIZE));
+  const sorted = useMemo(() => {
+    const base = filtered.length ? [...filtered] : [...blogPosts];
+    const time = (d: string) => new Date(d).getTime() || 0;
+    switch (sort) {
+      case "oldest":
+        return base.sort((a, b) => time(a.date) - time(b.date));
+      case "popular":
+        // popular = same as initial featured/popular ordering in blogPosts
+        return base;
+      case "featured":
+        return base.sort((a, b) => (a.slug === featured.slug ? -1 : b.slug === featured.slug ? 1 : 0));
+      case "latest":
+      default:
+        return base.sort((a, b) => time(b.date) - time(a.date));
+    }
+  }, [filtered, sort, featured.slug]);
+  const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
   const page = Math.min(currentPage, totalPages);
-  const latest = latestSource.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const latest = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   const updateParam = (key: string, value: string | null) => {
     const p = new URLSearchParams(searchParams);
@@ -414,16 +433,35 @@ const BlogPage = () => {
                 {activeCat === "All" ? "Latest articles" : `Latest in ${activeCat}`}
               </h2>
             </div>
-            <div className="flex items-center gap-3">
-              <label className="text-xs font-body text-muted-foreground uppercase tracking-widest">Filter</label>
-              <select
-                value={activeCat}
-                onChange={(e) => updateParam("category", e.target.value)}
-                className="bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-foreground focus:border-gold outline-none"
-              >
-                <option value="All">All categories</option>
-                {categories.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2">
+                <Tag size={14} className="text-muted-foreground" aria-hidden="true" />
+                <label htmlFor="cat-filter" className="sr-only">Filter by category</label>
+                <select
+                  id="cat-filter"
+                  value={activeCat}
+                  onChange={(e) => updateParam("category", e.target.value)}
+                  className="bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-foreground focus:border-gold outline-none"
+                >
+                  <option value="All">All categories</option>
+                  {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+              <div className="flex items-center gap-2">
+                <ArrowUpDown size={14} className="text-muted-foreground" aria-hidden="true" />
+                <label htmlFor="sort-by" className="sr-only">Sort articles</label>
+                <select
+                  id="sort-by"
+                  value={sort}
+                  onChange={(e) => updateParam("sort", e.target.value === "latest" ? null : e.target.value)}
+                  className="bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-foreground focus:border-gold outline-none"
+                >
+                  <option value="latest">Latest</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="popular">Popular</option>
+                  <option value="featured">Featured</option>
+                </select>
+              </div>
             </div>
           </header>
 
@@ -542,6 +580,97 @@ const BlogPage = () => {
             <h2 className="font-display text-2xl sm:text-3xl text-foreground">Frequently asked</h2>
           </header>
           <Accordion items={FAQS} />
+        </div>
+      </section>
+
+      {/* NEWSLETTER */}
+      <section aria-labelledby="newsletter-heading" className="py-16 sm:py-24">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
+          <div className="rounded-3xl border border-gold/30 bg-gradient-to-br from-cream to-background p-8 sm:p-12 text-center shadow-soft">
+            <Mail size={28} className="text-gold mx-auto mb-3" />
+            <p className="font-script text-gold text-xl mb-1">Stay inspired</p>
+            <h2 id="newsletter-heading" className="font-display text-2xl sm:text-3xl text-foreground mb-3">
+              Wedding design ideas, in your inbox
+            </h2>
+            <p className="font-body text-sm sm:text-base text-muted-foreground max-w-xl mx-auto mb-6">
+              Join couples planning their celebrations with Weddy Dev. Get fresh wedding card design guides, invitation trends and exclusive offers — no spam, ever.
+            </p>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const email = (e.currentTarget.elements.namedItem("email") as HTMLInputElement)?.value;
+                window.open(
+                  `https://wa.me/919160703822?text=${encodeURIComponent(`Hi, please subscribe me to the Weddy Dev journal: ${email ?? ""}`)}`,
+                  "_blank",
+                );
+              }}
+              className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
+            >
+              <label htmlFor="blog-newsletter" className="sr-only">Email address</label>
+              <input
+                id="blog-newsletter"
+                name="email"
+                type="email"
+                required
+                placeholder="you@email.com"
+                className="flex-1 px-4 py-3 rounded-full bg-card border border-border placeholder:text-muted-foreground/60 text-foreground text-sm focus:outline-none focus:border-gold"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 rounded-full gradient-gold text-primary-foreground font-body text-xs tracking-widest uppercase shadow-gold hover:scale-[1.02] transition-transform"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER DISCOVERY */}
+      <section aria-label="Explore more" className="py-12 border-t border-border bg-cream/30">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-10 grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm font-body">
+          <div>
+            <p className="font-display text-base text-foreground mb-3">Popular categories</p>
+            <ul className="space-y-2 text-muted-foreground">
+              {categories.map((c) => (
+                <li key={c}>
+                  <Link to={`/blog?category=${encodeURIComponent(c)}`} className="hover:text-gold transition-colors">
+                    {c} <span className="text-muted-foreground/60">({countByCategory(c)})</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-display text-base text-foreground mb-3">Popular articles</p>
+            <ul className="space-y-2 text-muted-foreground">
+              {blogPosts.slice(0, 4).map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/blog/${p.slug}`} className="hover:text-gold transition-colors line-clamp-2">{p.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-display text-base text-foreground mb-3">Recent posts</p>
+            <ul className="space-y-2 text-muted-foreground">
+              {[...blogPosts].sort((a, b) => (new Date(b.date).getTime() || 0) - (new Date(a.date).getTime() || 0)).slice(0, 4).map((p) => (
+                <li key={p.slug}>
+                  <Link to={`/blog/${p.slug}`} className="hover:text-gold transition-colors line-clamp-2">{p.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="font-display text-base text-foreground mb-3">Explore Weddy Dev</p>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><Link to="/designs" className="hover:text-gold transition-colors">Wedding card designs</Link></li>
+              <li><Link to="/about" className="hover:text-gold transition-colors">About us</Link></li>
+              <li><Link to="/contact" className="hover:text-gold transition-colors">Contact</Link></li>
+              <li><a href="/sitemap.xml" className="hover:text-gold transition-colors">Sitemap</a></li>
+              <li><a href="https://wa.me/919160703822" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">WhatsApp us</a></li>
+            </ul>
+          </div>
         </div>
       </section>
 

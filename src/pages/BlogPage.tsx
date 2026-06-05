@@ -433,16 +433,35 @@ const BlogPage = () => {
                 {activeCat === "All" ? "Latest articles" : `Latest in ${activeCat}`}
               </h2>
             </div>
-            <div className="flex items-center gap-3">
-              <label className="text-xs font-body text-muted-foreground uppercase tracking-widest">Filter</label>
-              <select
-                value={activeCat}
-                onChange={(e) => updateParam("category", e.target.value)}
-                className="bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-foreground focus:border-gold outline-none"
-              >
-                <option value="All">All categories</option>
-                {categories.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2">
+                <Tag size={14} className="text-muted-foreground" aria-hidden="true" />
+                <label htmlFor="cat-filter" className="sr-only">Filter by category</label>
+                <select
+                  id="cat-filter"
+                  value={activeCat}
+                  onChange={(e) => updateParam("category", e.target.value)}
+                  className="bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-foreground focus:border-gold outline-none"
+                >
+                  <option value="All">All categories</option>
+                  {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+              <div className="flex items-center gap-2">
+                <ArrowUpDown size={14} className="text-muted-foreground" aria-hidden="true" />
+                <label htmlFor="sort-by" className="sr-only">Sort articles</label>
+                <select
+                  id="sort-by"
+                  value={sort}
+                  onChange={(e) => updateParam("sort", e.target.value === "latest" ? null : e.target.value)}
+                  className="bg-card border border-border rounded-full px-4 py-2 font-body text-sm text-foreground focus:border-gold outline-none"
+                >
+                  <option value="latest">Latest</option>
+                  <option value="oldest">Oldest</option>
+                  <option value="popular">Popular</option>
+                  <option value="featured">Featured</option>
+                </select>
+              </div>
             </div>
           </header>
 
